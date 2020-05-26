@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>UDer Annotation</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="UDer: Interface for manual annotation">
+        <meta name="keywords" content="UDer, Universal Derivations, annotation, word-formation, derivatioanl morphology">
+        <meta name="author" content="Lukáš Kyjánek">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="components/w3.css">
+        <link rel="stylesheet" href="components/mystyles.css"> 
+        <script src="components/cytoscape.min.js"></script>
+        <script src="components/jquery.min.js"></script>
+        <script src="components/notify.min.js"></script>
+
+        <script>
+            // define function for Internet Explorer
+            if (!String.prototype.startsWith) {
+                String.prototype.startsWith = function(searchString, position) {
+                    position = position || 0;
+                    return this.indexOf(searchString, position) === position;
+                };
+            };
+
+            // define method for Internet Explorer
+            if (!Array.prototype.includes) {
+                Object.defineProperty(Array.prototype, "includes", {
+                    enumerable: false,
+                    value: function(obj) {
+                        var newArr = this.filter(function(el) { return el == obj; });
+                        return newArr.length > 0;
+                    }
+                });
+            };
+
+
+            var families;  // list of word-formation families
+            var cy;  // current displayed family
+            var max_fam, cur_fam = 0; // number of all families, number of current displeyed family
+            var loaded = false;  // boolean, if any data is loaded
+
+            // func: display graph
+            function display(content) {
+                cy = cytoscape({
+                    // increace performance
+                    motionBlur: true,  // increase perceived performance for little or no cost
+                    pixelRatio: 1,  // interpolate on high density displays instead of increasing resolution
+                    wheelSensitivity: 0.3, // sensitivity of the mouse wheel (zooming)
+                    textureOnViewport: true,  // use a bitmap during interaction
+                    hideEdgesOnViewport: true,  // hide edges of the graph during interaction
+                    hideLabelsOnViewport: true,  // hide labels of the graph during interaction
+                    // display
+                    container: $('#cy'),
+                    layout: { name: 'preset' },
+                    style: [{
+                            // node properties
+                            selector: 'node[id]',
+                            style:  { 'content': 'data(id)' }
+                            },
+                            {
+                            // edge properties
+                            selector: 'edge',
+                            style:  {
+                                        'curve-style': 'unbundled-bezier',
+                                        'line-style': 'data(intoTree)',
+                                        'target-arrow-shape': 'none',
+                                        'source-arrow-shape': 'tee'
+                                    }
+                            }],
+                    elements: content
+                });
+            };
+
+            // func: set style of the displaying graphs 
+            function setStyle() {
+                cy.$('[intoTree = "solid"]').style('width', '3');
+                cy.$('[intoTree = "solid"]').style('source-arrow-shape', 'triangle');
+                cy.$('[intoTree = "dotted"]').style('width', '1');
+                cy.$('[intoTree = "dotted"]').style('source-arrow-shape', 'tee');
+                for (var i = 0; i < families[cur_fam]['nodes'].length; i++) {
+                    if ('position' in families[cur_fam]['nodes'][i]) {
+                        var x = families[cur_fam]['nodes'][i]['position']['x'];
+                        var y = families[cur_fam]['nodes'][i]['position']['y'];
+                        if (x == 0) { x = Math.round(Math.random()*600) }
+                        if (y == 0) { y = Math.round(Math.random()*600) }
+                        cy.nodes('[id = "' + families[cur_fam]['nodes'][i]['data']['id'] + '"]').position('x', x);
+                        cy.nodes('[id = "' + families[cur_fam]['nodes'][i]['data']['id'] + '"]').position('y', y);
+                    }
+                    else {
+                        cy.nodes('[id = "' + families[cur_fam]['nodes'][i]['data']['id'] + '"]').position('x', Math.round(Math.random()*600));
+                        cy.nodes('[id = "' + families[cur_fam]['nodes'][i]['data']['id'] + '"]').position('y', Math.round(Math.random()*600));
+                    }
+                };
+                cy.fit(cy.$('node'));
+            };
+
+            // func: save current family before switching to another
+            function saveFamily() {
+                var data = cy.json(flatEles=false).elements;
+                // clean unnecessary features and round positions
+                var feats = ['group', 'removed', 'selected', 'selectable', 'locked', 'grabbable', 'pannable', 'classes'];
+                for (var i = 0; i < data.nodes.length; i++) {
+                    for (var j = 0; j < feats.length; j++) { delete data.nodes[i][feats[j]]; };
+                    data.nodes[i]['position']['x'] = Math.round(data.nodes[i]['position']['x']);
+                    data.nodes[i]['position']['y'] = Math.round(data.nodes[i]['position']['y']);
+                };
+                for (var i = 0; i < data.edges.length; i++) {
+                    for (var j = 0; j < feats.length; j++) { delete data.edges[i][feats[j]]; }
+                    delete data.edges[i]['data'].id;
+                    delete data.edges[i].position;
+                };
+                families[cur_fam] = data;
+            };
+
+            // func: search family containing given string, return index or null
+            function searchLexeme(lexeme) {
+                for (var i = 0; i < families.length; i++) {
+                    for (var j = 0; j < families[i]['nodes'].length; j++) {
+                        if (families[i]['nodes'][j]['data']['id'].startsWith(lexeme)) { return i; }
+                    }
+                }
+                return null;
+            };
+
+            // func: remove selected edges
+            function remove_selected_edges() {
+                cy.$('edge:selected').style('line-style', 'dotted');
+                cy.$('edge:selected').style('width', '1');
+                cy.$('edge:selected').style('source-arrow-shape', 'tee');
+                cy.$('edge:selected').data('intoTree', 'dotted');
+            };
+
+            // func: restore selected edges
+            function restore_selected_edges() {
+                cy.$('edge:selected').style('line-style', 'solid');
+                cy.$('edge:selected').style('width', '3');
+                cy.$('edge:selected').style('source-arrow-shape', 'triangle');
+                cy.$('edge:selected').data('intoTree', 'solid');
+            };
+
+            // func: switch to display previous family
+            function previous_family() {
+                saveFamily();
+                if (cur_fam - 1 >= 0) {
+                    cur_fam -= 1;
+                    display(families[cur_fam]);
+                    $('#current').val(cur_fam + 1);
+                    setStyle();
+                }
+            };
+
+            // func: switch to display next family
+            function next_family() {
+                saveFamily();
+                if (cur_fam + 1 < max_fam) { 
+                    cur_fam += 1;
+                    display(families[cur_fam]);
+                    $('#current').val(cur_fam + 1);
+                    setStyle();
+                }
+            };
+
+            // func: list all lexemes from displayed family
+            function list_lexemes() {
+                if (loaded) {
+                    $('#infowindow').css('display', 'block');
+                    var lemmas = new Set();
+                    for (var i = 0; i < families[cur_fam]['edges'].length; i++) {
+                        lemmas.add(families[cur_fam]['edges'][i]['data']['source']);
+                        lemmas.add(families[cur_fam]['edges'][i]['data']['target']);
+                    };
+
+                    var output = new Array();
+                    lemmas.forEach(function(item) { output.push(item); });
+                    $('#info_text').text(output.join(' '));
+                }
+            };
+
+            // func: close information window
+            function close_info() { $('#infowindow').css('display', 'none'); };
+
+            // func: check if displayed family is already tree (or all its components are trees)
+            function check_treeness() {
+                if (loaded) {
+                    // initialise data for counting components
+                    var data = new Object();
+                    for (var i = 0; i < families[cur_fam]['nodes'].length; i++) {
+                        data[families[cur_fam]['nodes'][i]['data']['id']] = new Array();
+                    };
+                    for (var i = 0; i < families[cur_fam]['edges'].length; i++) {
+                        if (families[cur_fam]['edges'][i]['data']['intoTree'] == 'solid') {
+                            data[families[cur_fam]['edges'][i]['data']['target']].push(families[cur_fam]['edges'][i]['data']['source']);
+                            data[families[cur_fam]['edges'][i]['data']['source']].push(families[cur_fam]['edges'][i]['data']['target']);
+                        }
+                    };
+
+                    // count components
+                    var components = new Array();
+                    for (var i = 0; i < Object.keys(data).length; i++) {
+                        // initialisation for BFS
+                        var seen_nodes = new Set();
+                        var fifo = new Array();
+                        fifo.push(Object.keys(data)[i]);
+                        // check if node is already counted in any component
+                        var inside = false;
+                        for (var j = 0; j < components.length; j++) { if (components[j].includes(fifo[0])) { inside = true; } }
+                        if (inside) { continue; }
+                        // go through graph
+                        while (Array.isArray(fifo) && fifo.length > 0) {
+                            for (var child in data[fifo[0]]) {
+                                if (!(seen_nodes.has(data[fifo[0]][child]))) { fifo.push(data[fifo[0]][child]); }
+                            }
+                            seen_nodes.add(fifo.shift());
+                        };
+                        // save component
+                        var output = new Array();
+                        seen_nodes.forEach(function(item) { output.push(item); });
+                        components.push(output);
+                    };
+
+                    // initialise data for checking treeness of each components
+                    var data_root = new Object();
+                    var data_treeness = new Object();
+                    for (var i = 0; i < families[cur_fam]['nodes'].length; i++) {
+                        data_root[families[cur_fam]['nodes'][i]['data']['id']] = new Array();
+                        data_treeness[families[cur_fam]['nodes'][i]['data']['id']] = new Array();
+                    };
+                    for (var i = 0; i < families[cur_fam]['edges'].length; i++) {
+                        if (families[cur_fam]['edges'][i]['data']['intoTree'] == 'solid') {
+                            data_treeness[families[cur_fam]['edges'][i]['data']['target']].push(families[cur_fam]['edges'][i]['data']['source']);
+                            data_root[families[cur_fam]['edges'][i]['data']['source']].push(families[cur_fam]['edges'][i]['data']['target']);
+                        }
+                    };
+
+                    // check treenes of each component - TODO: fix
+                    for (var i = 0; i < components.length; i++) {
+                        // find root of the component (one root = OK, otherwise = non-tree component)
+                        var root = '';
+                        for (var j = 0; j < components[i].length; j++) {
+                            if (data_root[components[i][j]].length == 0 && root == '') { root = components[i][j] }
+                            else if (data_root[components[i][j]].length == 0) { $('#treeness').notify('NO', {className: 'error', position: 'top'}); return; }
+                        }
+                        if (root == '') { $('#treeness').notify('NO', {className: 'error', position: 'top'}); return; }
+                        // initialisation for BFS
+                        var seen_nodes = new Set();
+                        var fifo = new Array();
+                        fifo.push(root);
+                        // go through component and check treenes
+                        while (Array.isArray(fifo) && fifo.length > 0) {
+                            for (var child in data_treeness[fifo[0]]) {
+                                if (seen_nodes.has(data_treeness[fifo[0]][child]) || fifo.includes(data_treeness[fifo[0]][child])) { $('#treeness').notify('NO', {className: 'error', position: 'top'}); return; }
+                                if (fifo[0] == data_treeness[fifo[0]][child]) { $('#treeness').notify('NO', {className: 'error', position: 'top'}); return; }
+                                fifo.push(data_treeness[fifo[0]][child]);
+                            }
+                            seen_nodes.add(fifo.shift());
+                        };
+                    };
+                    $('#treeness').notify('YES', {className: 'success', position: 'top'});
+                }
+            };
+
+
+            // INITIALISE: document is fully loaded
+            $(document).ready(function(){
+
+                // WHEN: file is uploaded using file-button
+                $('#file-input').change(
+                    function(e) {
+                        var file = e.target.files[0];
+                        var reader = new FileReader();
+                        reader.onload = function(e) {
+                            families = JSON.parse(e.target.result);
+                            max_fam = families.length;
+                            display(families[cur_fam]);
+                            $('#current').val(cur_fam + 1);
+                            $('#max').val(max_fam);
+                            setStyle();
+                        };
+                        reader.readAsText(file);
+                        loaded = true;
+                    }
+                );
+
+                // WHEN: data should be saved using save-button
+                $('#save').click(
+                    function(e) {
+                        saveFamily();
+                        var a = document.createElement('a');
+                        document.body.appendChild(a);
+                        a.style = 'display: none';
+                        var json = JSON.stringify(families);
+                        var blob = new Blob([json], {type: 'text/plain;charset=utf-8'});
+                        if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+                            window.navigator.msSaveOrOpenBlob(blob, 'filename.json');
+                        }
+                        else {
+                            var url = window.URL.createObjectURL(blob);
+                            a.href = url;
+                            a.download = 'filename.json';
+                            a.click();
+                            window.URL.revokeObjectURL(url);
+                        }                       
+                    }
+                );
+
+                // WHEN: click on remove-edge-button
+                $('#remove').click(function(e) { remove_selected_edges(); });
+
+                // WHEN: click on restore-edge-button
+                $('#restore').click(function(e) { restore_selected_edges(); });
+
+                // WHEN: click on removeall-edges-button
+                $('#removeall').click(
+                    function() {
+                        cy.$('edge').style('line-style', 'dotted');
+                        cy.$('edge').style('width', '1');
+                        cy.$('edge').style('source-arrow-shape', 'tee');
+                        cy.$('edge').data('intoTree', 'dotted');
+                    }
+                );
+
+                // WHEN: click on restoreall-edges-button
+                $('#restoreall').click(
+                    function() {
+                        cy.$('edge').style('line-style', 'solid');
+                        cy.$('edge').style('width', '3');
+                        cy.$('edge').style('source-arrow-shape', 'triangle');
+                        cy.$('edge').data('intoTree', 'solid');
+                    }
+                );
+
+                // WHEN: click on left-button
+                $('#back').click(function(e) { previous_family(); });
+
+                // WHEN: click on right-button
+                $('#next').click(function(e) { next_family(); });
+
+                // WHEN: change value in current-input
+                $('#current').keyup(function(e){
+                    if(loaded && e.keyCode == 13) {
+                        var want = $('#current').val().trim();
+                        if (Number(want)) {
+                            want = Number($('#current').val()) - 1;
+                            if (want < 0 || want > max_fam) {
+                                $('#current').val(cur_fam + 1)
+                                return;
+                            }
+                        }
+                        else {
+                            want = searchLexeme(want);
+                            if (want == null) {
+                                $('#current').val(cur_fam + 1);
+                                return;
+                            }
+                        }
+                        saveFamily();
+                        display(families[want]);
+                        cur_fam = want;
+                        $('#current').val(cur_fam + 1);
+                        setStyle();
+                        $('#current').blur();
+                    }
+                });
+
+                // WHEN: click on lexemed-button
+                $('#textual').click(function(e) { list_lexemes() });
+
+                // WHEN: click on close-button of info-window
+                $('.close').click(function(e) { close_info() });
+
+                // WHEN: click on treeness-button
+                $('#treeness').click(function(e) { check_treeness() });
+
+                // WHEN: push some key
+                $('body').keyup(function(e){
+                    var el = document.activeElement;
+                    try { if (el && el.selectionStart !== undefined || el.isContentEditable) { return; } }
+                    catch (ex) {};
+                    var actions = {
+                        84: check_treeness,
+                        76: list_lexemes,
+                        27: close_info,
+                        46: remove_selected_edges,
+                        16: restore_selected_edges,
+                        37: previous_family,
+                        39: next_family
+                    };
+                    if (actions[e.which]) actions[e.which]();
+                });
+
+                // WHEN: allow REMOVE/RESTORE ALL buttons
+                $('#allow-all').change(
+                    function(){
+                        if ($(this).is(':checked')) {
+                            $('#restoreall').prop('disabled', false);
+                            $('#restoreall').css('opacity', '1');
+                            $('#restoreall').css('cursor', 'pointer');
+                            $('#removeall').prop('disabled', false);
+                            $('#removeall').css('opacity', '1');
+                            $('#removeall').css('cursor', 'pointer');
+                        }
+                        else {
+                            $('#restoreall').prop('disabled', true);
+                            $('#restoreall').css('opacity', '0.5');
+                            $('#restoreall').css('cursor', 'default');
+                            $('#removeall').prop('disabled', true);
+                            $('#removeall').css('opacity', '0.5');
+                            $('#removeall').css('cursor', 'default');
+                        }
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <h1 class="w3-container">UDer: Interface for manual annotation</h1>
+
+        <div class="palete" id="cy"></div>
+
+        <div id="infowindow" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2><strong>Lexemes included in this family:</strong></h2>
+            <p id="info_text"></p>
+        </div>
+        </div> 
+
+        <div class="w3-row w3-center controls">
+            <div class="w3-col" style="width: 22%;">
+                <label class="custom-file-upload">
+                    <input type="file" id="file-input" />Upload JSON
+                </label>
+                <button class="custom-file-upload" id="save">Save JSON</button>
+            </div>
+
+            <div class="w3-col" style="width: 27%;">
+                <button class="button" id="back">&laquo;</button>
+                <button class="button btn-blue" id="restore">Restore edge</button>
+                <button class="button btn-red" id="remove">Remove edge</button>
+                <button class="button" id="next">&raquo;</button>
+            </div>
+
+            <div class="w3-col" style="width: 17%;">
+                <input type="text" id="current" style="text-align:center;"> / <input type="text" id="max" disabled>
+            </div>
+
+            <div class="w3-col" style="width: 33%;">
+                <input type="checkbox" name='allow' id="allow-all">
+                <button type="button" class="button btn-blue" style="opacity: 0.5; cursor: default;" id="restoreall" disabled>Restore ALL</button>
+                <button type="button" class="button btn-red" style="opacity: 0.5; cursor: default;" id="removeall" disabled>Remove ALL</button>
+                <button class="button" id="textual">Lexemes</button>
+                <button class="button" id="treeness">Is it tree?</button>
+            </div>
+        </div>
+    </body>
+</html>

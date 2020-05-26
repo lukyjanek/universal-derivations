@@ -1,0 +1,73 @@
+[
+    {
+        "edges": 
+            [
+                {"data": {"target": "glatt_A", "intoTree": "solid", "source": "Gl\u00e4tte_Nf"}}, 
+                {"data": {"target": "glatt_A", "intoTree": "solid", "source": "gl\u00e4tten_V"}}, 
+                {"data": {"target": "gl\u00e4tten_V", "intoTree": "solid", "source": "Gl\u00e4tte_Nf"}}, 
+                {"data": {"target": "gl\u00e4tten_V", "intoTree": "solid", "source": "gl\u00e4ttend_A"}}
+            ], 
+        "nodes": 
+            [
+                {"data": {"name": "gl\u00e4ttend_A", "id": "gl\u00e4ttend_A"}}, 
+                {"data": {"name": "Gl\u00e4tte_Nf", "id": "Gl\u00e4tte_Nf"}}, 
+                {"data": {"name": "glatt_A", "id": "glatt_A"}}, 
+                {"data": {"name": "gl\u00e4tten_V", "id": "gl\u00e4tten_V"}}
+            ]
+    }, 
+    {
+        "edges": 
+            [
+                {"data": {"target": "Goldschmied_Nm", "intoTree": "solid", "source": "Goldschmiedin_Nf"}}, 
+                {"data": {"target": "Goldschmiede_Nm", "intoTree": "solid", "source": "Goldschmiedin_Nf"}}
+            ], 
+        "nodes": 
+            [
+                {"data": {"name": "Goldschmiedin_Nf", "id": "Goldschmiedin_Nf"}}, 
+                {"data": {"name": "Goldschmied_Nm", "id": "Goldschmied_Nm"}}, 
+                {"data": {"name": "Goldschmiede_Nm", "id": "Goldschmiede_Nm"}}
+            ]
+    }, 
+    {
+        "edges": 
+            [
+                {"data": {"target": "Anblasen_Nn", "intoTree": "solid", "source": "anblasen_V"}}, 
+                {"data": {"target": "Einblasen_Nn", "intoTree": "solid", "source": "einblasen_V"}}, 
+                {"data": {"target": "Ausblasen_Nn", "intoTree": "solid", "source": "ausblasen_V"}}, 
+                {"data": {"target": "blasen_V", "intoTree": "solid", "source": "blasend_A"}}, 
+                {"data": {"target": "blasen_V", "intoTree": "solid", "source": "einblasen_V"}}, 
+                {"data": {"target": "blasen_V", "intoTree": "solid", "source": "verblasen_V"}}, 
+                {"data": {"target": "blasen_V", "intoTree": "solid", "source": "Blase_Nf"}}, 
+                {"data": {"target": "blasen_V", "intoTree": "solid", "source": "anblasen_V"}}, 
+                {"data": {"target": "blasen_V", "intoTree": "solid", "source": "durchblasen_V"}}, 
+                {"data": {"target": "Blasen_Nn", "intoTree": "solid", "source": "Anblasen_Nn"}}, 
+                {"data": {"target": "Blasen_Nn", "intoTree": "solid", "source": "ausblasen_V"}}, 
+                {"data": {"target": "Blasen_Nn", "intoTree": "solid", "source": "\u00dcberblasen_Nn"}}, 
+                {"data": {"target": "Blasen_Nn", "intoTree": "solid", "source": "Ausblasen_Nn"}}, 
+                {"data": {"target": "Blasen_Nn", "intoTree": "solid", "source": "geblasen_A"}}, 
+                {"data": {"target": "Blasen_Nn", "intoTree": "solid", "source": "blasen_V"}},
+                {"data": {"target": "Blase_Nf", "intoTree": "solid", "source": "anblasen_V"}}, 
+                {"data": {"target": "Blase_Nf", "intoTree": "solid", "source": "ausblasen_V"}}, 
+                {"data": {"target": "Blase_Nf", "intoTree": "solid", "source": "verblasen_V"}}, 
+                {"data": {"target": "Blase_Nf", "intoTree": "solid", "source": "durchblasen_V"}}, 
+                {"data": {"target": "Blase_Nf", "intoTree": "solid", "source": "einblasen_V"}}
+            ], 
+        "nodes": 
+            [
+                {"data": {"name": "blasend_A", "id": "blasend_A"}}, 
+                {"data": {"name": "\u00dcberblasen_Nn", "id": "\u00dcberblasen_Nn"}}, 
+                {"data": {"name": "Anblasen_Nn", "id": "Anblasen_Nn"}}, 
+                {"data": {"name": "anblasen_V", "id": "anblasen_V"}}, 
+                {"data": {"name": "Einblasen_Nn", "id": "Einblasen_Nn"}}, 
+                {"data": {"name": "Ausblasen_Nn", "id": "Ausblasen_Nn"}}, 
+                {"data": {"name": "blasen_V", "id": "blasen_V"}}, 
+                {"data": {"name": "durchblasen_V", "id": "durchblasen_V"}}, 
+                {"data": {"name": "einblasen_V", "id": "einblasen_V"}}, 
+                {"data": {"name": "ausblasen_V", "id": "ausblasen_V"}}, 
+                {"data": {"name": "verblasen_V", "id": "verblasen_V"}}, 
+                {"data": {"name": "Blasen_Nn", "id": "Blasen_Nn"}}, 
+                {"data": {"name": "geblasen_A", "id": "geblasen_A"}}, 
+                {"data": {"name": "Blase_Nf", "id": "Blase_Nf"}}
+            ]
+        }
+]
