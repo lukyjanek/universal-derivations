@@ -18,7 +18,8 @@ For detailed information see [Universal Derivations webpage](https://ufal.mff.cu
 Copyright &copy; 2020 Lukáš Kyjánek and the rest of the UDer team.
 See the Git contributor history for the exact list of authors.
 
-## Acknowlegdments
+
+## Acknowledgment
 This work was supported by:
 - the Grant No. GA19-14534S of the Czech Science Foundation,
 - the Grant No. 1176219 of the Charles University Grant Agency,
