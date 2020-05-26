@@ -32,4 +32,4 @@ universal-derivations:
 # harmonises CELEX database
 # the harmonised version will be in 'universal-derivations/UDer-1.0/'
 harmonise:
-	cd universal-derivations/ && $(MAKE) version=1.0 language=de resource=GCelex
+	cd universal-derivations/ && $(MAKE) UDer-resource version=1.0 language=de resource=GCelex
