@@ -24,7 +24,10 @@ UDer-0.5-pl-PolishWFN.tsv: ../../derinet2/ ../../py3env/ get-data-v05
 UDer-1.0-pl-PolishWFN.tsv: UDer-0.5-pl-PolishWFN.tsv
 	cp UDer-0.5-pl-PolishWFN.tsv UDer-1.0-pl-PolishWFN.tsv
 
+UDer-1.1-pl-PolishWFN.tsv: UDer-1.0-pl-PolishWFN.tsv
+	cp UDer-1.0-pl-PolishWFN.tsv UDer-1.1-pl-PolishWFN.tsv
+
 
 clean:
 	rm -rf original-data/ UDer-0.5-pl-PolishWFN.tsv
-	rm -rf UDer-1.0-pl-PolishWFN.tsv
+	rm -rf UDer-1.0-pl-PolishWFN.tsv UDer-1.1-pl-PolishWFN.tsv

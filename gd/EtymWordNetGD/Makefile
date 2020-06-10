@@ -35,6 +35,9 @@ UDer-1.0-gd-EtymWordNetGD.tsv: ../../derinet2/ ../../py3env/ get-data-v10
 	../../py3env/bin/python3 1.0/edit-json-column.py UDer-1.0-gd-EtymWordNetGD.tsv > UDer-1.0-gd-EtymWordNetGD-v2.tsv
 	mv UDer-1.0-gd-EtymWordNetGD-v2.tsv UDer-1.0-gd-EtymWordNetGD.tsv
 
+UDer-1.1-gd-EtymWordNetGD.tsv: UDer-1.0-gd-EtymWordNetGD.tsv
+	cp UDer-1.0-gd-EtymWordNetGD.tsv UDer-1.1-gd-EtymWordNetGD.tsv
+
 
 01-harm-annotation: ../../py3env/ get-data-v10
 	../../py3env/bin/python3 ../../annot_data.py -i 1.0/relations.tsv -o 1.0/01-harm-annotated/annotation-data.json -j
@@ -42,3 +45,4 @@ UDer-1.0-gd-EtymWordNetGD.tsv: ../../derinet2/ ../../py3env/ get-data-v10
 
 clean:
 	rm -rf original-data/ 1.0/relations.tsv 1.0/01-harm-annotated/all-annotations.tsv 1.0/harmonized.pickle UDer-1.0-gd-EtymWordNetGD.tsv
+	rm -rf UDer-1.1-gd-EtymWordNetGD.tsv

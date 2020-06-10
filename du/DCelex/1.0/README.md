@@ -75,7 +75,7 @@ Avarage tree out-degree: 0.1
 Maximum tree size: 301
 Maximum tree depth: 11
 Maximum tree out-degree: 73
-Part-of-speech: A, 0.0; ADJ, 7.7; ADP, 0.1; ADV, 0.8; D, 0.0; N, 1.1; NOUN, 62.8; NUM, 0.2; P, 0.0; V, 0.0; VERB, 7.8; X, 19.4
+Part-of-speech: ADJ, 7.7; ADP, 0.1; ADV, 0.8; NOUN, 63.9; NUM, 0.2; VERB, 7.8; X, 19.4
 Derivational relations: 9489
 Conversion relations: 0
 Compounding relations: 3946

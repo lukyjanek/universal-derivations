@@ -22,7 +22,10 @@ UDer-0.5-cs-DeriNet.tsv: ../../derinet2/ ../../py3env/ get-data-v05
 UDer-1.0-cs-DeriNet.tsv: UDer-0.5-cs-DeriNet.tsv
 	cp UDer-0.5-cs-DeriNet.tsv UDer-1.0-cs-DeriNet.tsv
 
+UDer-1.1-cs-DeriNet.tsv: UDer-1.0-cs-DeriNet.tsv
+	cp UDer-1.0-cs-DeriNet.tsv UDer-1.1-cs-DeriNet.tsv
+
 
 clean:
 	rm -rf original-data/ UDer-0.5-cs-DeriNet.tsv
-	rm -rf UDer-1.0-cs-DeriNet.tsv
+	rm -rf UDer-1.0-cs-DeriNet.tsv UDer-1.1-cs-DeriNet.tsv

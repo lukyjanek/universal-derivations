@@ -40,7 +40,7 @@ License, sublicenses and copyright texts are available in the file `LICENSE.txt`
 
 # Changelog
 
-* 2019-09 UDer v1.0
+* 2020-05 UDer v1.0
     * Without changes.
 * 2019-09 UDer v0.5
     * Including the Polish Word-Formation Network v0.5 to the UDer collection.

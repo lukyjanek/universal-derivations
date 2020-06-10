@@ -25,7 +25,10 @@ UDer-0.5-fa-DeriNetFA.tsv: ../../derinet2/ ../../py3env/ get-data-v05
 UDer-1.0-fa-DeriNetFA.tsv: UDer-0.5-fa-DeriNetFA.tsv
 	cp UDer-0.5-fa-DeriNetFA.tsv UDer-1.0-fa-DeriNetFA.tsv
 
+UDer-1.1-fa-DeriNetFA.tsv: UDer-1.0-fa-DeriNetFA.tsv
+	cp UDer-1.0-fa-DeriNetFA.tsv UDer-1.1-fa-DeriNetFA.tsv
+
 
 clean:
 	rm -rf original-data/ UDer-0.5-fa-DeriNetFA.tsv
-	rm -rf UDer-1.0-fa-DeriNetFA.tsv
+	rm -rf UDer-1.0-fa-DeriNetFA.tsv UDer-1.1-fa-DeriNetFA.tsv

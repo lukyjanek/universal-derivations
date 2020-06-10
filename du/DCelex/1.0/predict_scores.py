@@ -443,7 +443,7 @@ def preprocess_features(df):
         dummy = None
 
     # df_train = None
-    df.to_sparse()
+    # df.to_sparse()
     return df
 
 

@@ -68,6 +68,7 @@ class HarmonizeECelex(Block):
             if entry['compounding']:
                 # parent 1
                 p1_oid, p1_form, p1_pos = entry['compounding'][0][0].split('_')
+                p1_pos = parse_pos[p1_pos]
                 p1_lid = '#'.join([p1_oid, p1_form, p1_pos])
                 p1_node = lexicon.get_lexemes(lemma=p1_form, pos=p1_pos,
                                               lemid=p1_lid)
@@ -93,6 +94,7 @@ class HarmonizeECelex(Block):
 
                 # parent 2
                 p2_oid, p2_form, p2_pos = entry['compounding'][1][0].split('_')
+                p2_pos = parse_pos[p2_pos]
                 p2_lid = '#'.join([p2_oid, p2_form, p2_pos])
                 p2_node = lexicon.get_lexemes(lemma=p2_form, pos=p2_pos,
                                               lemid=p2_lid)

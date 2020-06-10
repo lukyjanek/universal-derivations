@@ -99,7 +99,10 @@ print('Maximum tree out-degree:', MAXWIDTH)
 pos_line = ''
 for key, freq in sorted(POS.items()):
     pos_line += '; ' + key + ', ' + str(round(freq/LEMMAS*100, 1))
-print('Part-of-speech:', pos_line[2:])
+if ' , 100.0' in pos_line:
+    print('Part-of-speech:', 'none')
+else:
+    print('Part-of-speech:', pos_line[2:])
 
 print('Derivational relations:', DERIVATIONS)
 print('Conversion relations:', CONVERSION)

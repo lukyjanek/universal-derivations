@@ -33,10 +33,14 @@ UDer-1.0-fr-Demonette.tsv: UDer-0.5-fr-Demonette.tsv
 	../../py3env/bin/python3 1.0/edit-json-column.py UDer-1.0-fr-Demonette.tsv > UDer-1.0-fr-Demonette-v2.tsv
 	mv UDer-1.0-fr-Demonette-v2.tsv UDer-1.0-fr-Demonette.tsv
 
+UDer-1.1-fr-Demonette.tsv: UDer-1.0-fr-Demonette.tsv
+	cp UDer-1.0-fr-Demonette.tsv UDer-1.1-fr-Demonette.tsv
+
+
 01-harm-annotation: ../../py3env/ get-data-v05
 	../../py3env/bin/python3 ../../annot_data.py -i 0.5/relations.tsv -o 0.5/01-harm-annotated/annotation-data.json -j
 
 
 clean:
 	rm -rf original-data/ 0.5/relations.tsv 0.5/01-harm-annotated/all-annotations.tsv 0.5/harmonized.pickle UDer-0.5-fr-Demonette.tsv
-	rm -rf UDer-1.0-fr-Demonette.tsv
+	rm -rf UDer-1.0-fr-Demonette.tsv UDer-1.1-fr-Demonette.tsv

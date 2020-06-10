@@ -1,7 +1,7 @@
 .PHONY: UDer-collection UDer-resource UDer-statistics
 SHELL=/bin/bash
 
-version:=1.0
+version:=1.1
 all: UDer-collection
 
 # install virtual environment (base)
@@ -11,11 +11,11 @@ py3env/:
 	pip3 install networkx==2.4; \
 	pip3 install xlrd==1.2.0; \
 	pip3 install textdistance==4.1.5; \
-	pip3 install pandas==0.24.2; \
+	pip3 install pandas==1.0.4; # older: 0.24.2 \
 	pip3 install numpy==1.18.1; \
 	pip3 install scikit-learn==0.22.1; \
 	pip3 install scipy==1.4.1; \
-	pip3 install matplotlib==3.0.3; \
+	pip3 install matplotlib==3.2.1; # older: 3.0.3 \
 
 # clone DeriNet API
 derinet2/:
@@ -95,6 +95,6 @@ UDer-resource:
 UDer-statistics:
 	for file in $$(find UDer-$(version)/ -type f -name '*.gz') ; do \
 		echo $$file >> UDer-$(version)-statistics.txt ;\
-		python3 uder_statistics.py <(zcat $$file) >> UDer-$(version)-statistics.txt ;\
+		py3env/bin/python3 uder_statistics.py <(zcat $$file) >> UDer-$(version)-statistics.txt ;\
 		echo -e "\n" >> UDer-$(version)-statistics.txt ;\
 	done
