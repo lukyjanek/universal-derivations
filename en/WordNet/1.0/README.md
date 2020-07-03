@@ -54,7 +54,7 @@ License and sublicense texts are available in the file `LICENSE.txt`.
 
 <pre>
 === Machine-readable metadata =================================================
-Resource: The Morpholo-Semantic Database v1.0
+Resource: The Morpho-Semantic Database v1.0
 Language: English
 Authors: Fellbaum, Christiane; Osherson, Anne; Clark, Peter E.
 License: CC BY-NC-SA 3.0
@@ -64,7 +64,7 @@ Contact: https://wordnet.princeton.edu/
 
 <pre>
 === Machine-readable metadata =================================================
-Harmonized resource: The Morpholo-Semantic Database
+Harmonized resource: The Morpho-Semantic Database
 Harmonized version: 1.0
 Data source: http://wordnetcode.princeton.edu/standoff-files/morphosemantic-links.xls
 Data available since: UDer v0.5

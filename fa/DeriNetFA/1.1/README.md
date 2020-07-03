@@ -55,7 +55,7 @@ Resource: DeriNet.FA
 Language: Persian
 Authors: Haghdoost, Hamid; Ansari, Ebrahim; Žabokrtský, Zdeněk; Nikravesh, Mahshid
 License: CC BY-NC-SA 4.0
-Contact: none
+Contact: http://ufal.mff.cuni.cz/derinet
 ===============================================================================
 </pre>
 

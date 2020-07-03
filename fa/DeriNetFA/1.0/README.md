@@ -53,13 +53,14 @@ Resource: DeriNet.FA
 Language: Persian
 Authors: Haghdoost, Hamid; Ansari, Ebrahim; Žabokrtský, Zdeněk; Nikravesh, Mahshid
 License: CC BY-NC-SA 4.0
-Contact: none
+Contact: http://ufal.mff.cuni.cz/derinet
 ===============================================================================
 </pre>
 
 <pre>
 === Machine-readable metadata =================================================
-Harmonized version: DeriNet.FA
+Harmonized resource: DeriNet.FA
+Harmonized version: 0.5
 Data source: internal
 Data available since: UDer v0.5
 Harmonization: default

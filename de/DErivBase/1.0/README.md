@@ -77,7 +77,7 @@ Contact: https://www.ims.uni-stuttgart.de/forschung/ressourcen/lexika/DErivBase.
 
 <pre>
 === Machine-readable metadata =================================================
-Harmonized version: DErivBase
+Harmonized resource: DErivBase
 Harmonized version: 2.0
 Data source: http://www.ims.uni-stuttgart.de/forschung/ressourcen/lexika/DErivBase/DErivBase-v2.0.zip
 Data available since: UDer v0.5

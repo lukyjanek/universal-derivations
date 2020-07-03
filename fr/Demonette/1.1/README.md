@@ -24,7 +24,7 @@ As a citation for the resource in articles, please use this:
 ```
 @ARTICLE{Demonette,
     author      = {Hathout, Nabil and Namer, Fiammetta},
-    title       = {{D{\'é}monette, a French Derivational Morpho-Semantic Network}},
+    title       = {{D{\'e}monette, a French Derivational Morpho-Semantic Network}},
     journal     = {{Linguistic Issues in Language Technology}},
     volume      = {11},
     number      = {5},

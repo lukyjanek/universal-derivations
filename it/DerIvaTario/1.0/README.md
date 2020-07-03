@@ -61,7 +61,7 @@ Contact: http://derivatario.sns.it/
 
 <pre>
 === Machine-readable metadata =================================================
-Harmonized version: DerIvaTario
+Harmonized resource: DerIvaTario
 Harmonized version: 1.0
 Data source: http://derivatario.sns.it/derivatario.csv
 Data available since: UDer v1.0

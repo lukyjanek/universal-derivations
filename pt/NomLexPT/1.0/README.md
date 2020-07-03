@@ -60,7 +60,7 @@ Contact: https://github.com/own-pt/nomlex-pt
 
 <pre>
 === Machine-readable metadata =================================================
-Harmonized version: NomLex-PT
+Harmonized resource: NomLex-PT
 Harmonized version: 2014
 Data source: https://github.com/own-pt/nomlex-pt/raw/master/nomlex-pt.rdf.gz
 Data available since: UDer v0.5
