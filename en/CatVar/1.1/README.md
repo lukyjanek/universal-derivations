@@ -39,15 +39,6 @@ The resource is licensed under the Open Software License version 1.1 (OSL-1.1).
 License text is available in the file `LICENSE.txt`.
 
 
-# Changelog
-
-* 2020-06 UDer v1.1
-    * Without changes.
-* 2020-05 UDer v1.0
-    * Including CatVar v2.1 to the UDer collection.
-    * Automatic harmonization using Machine Learning.
-
-
 <pre>
 === Machine-readable metadata =================================================
 Resource: CatVar

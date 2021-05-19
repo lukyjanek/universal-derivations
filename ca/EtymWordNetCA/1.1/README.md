@@ -62,15 +62,6 @@ The resource is licensed under the Creative Commons Attribution-ShareAlike 3.0 L
 License text is available in the file `LICENSE.txt`.
 
 
-# Changelog
-
-* 2020-06 UDer v1.1
-    * Without changes.
-* 2020-05 UDer v1.0
-    * Including Etymological Wordnet v2013-02-08 to the UDer collection.
-    * Manual harmonization.
-
-
 <pre>
 === Machine-readable metadata =================================================
 Resource: Etymological WordNet

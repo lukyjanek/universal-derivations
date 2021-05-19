@@ -53,20 +53,6 @@ The resource is licensed under the Creative Commons Attribution-ShareAlike 3.0 L
 License text is available in the file `LICENSE.txt`.
 
 
-# Changelog
-
-* 2020-06 UDer v1.1
-    * Without changes.
-* 2020-05 UDer v1.0
-    * Automatic reharmonization of DErivBase v2.0 using Machine Learning.
-    * Fixing the original manual annotations.
-    * Adding new manual annotations.
-    * Replacing LEMIDs to IDs in the tenth JSON-encoded column.
-* 2019-09 UDer v0.5
-    * Including DErivBase v2.0 to the UDer collection.
-    * Automatic harmonization using Machine Learning.
-
-
 <pre>
 === Machine-readable metadata =================================================
 Resource: DErivBase

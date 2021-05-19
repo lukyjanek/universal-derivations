@@ -40,18 +40,6 @@ The resource is licensed under the Creative Commons Attribution-NonCommercial-Sh
 License text is available in the file `LICENSE.txt`.
 
 
-# Changelog
-
-* 2020-06 UDer v1.1
-    * Without changes.
-* 2020-05 UDer v1.0
-    * Updating WFL v2019.
-    * Replacing LEMIDs to IDs in the tenth JSON-encoded column.
-* 2019-09 UDer v0.5
-    * Including WFL v2017 to the UDer collection.
-    * Manual harmonization.
-
-
 <pre>
 === Machine-readable metadata =================================================
 Resource: Word Formation Latin

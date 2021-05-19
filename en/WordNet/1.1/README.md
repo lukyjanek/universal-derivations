@@ -43,17 +43,6 @@ The resource is licensed under the Creative Commons Attribution-NonCommercial-Sh
 License and sublicense texts are available in the file `LICENSE.txt`.
 
 
-# Changelog
-
-* 2020-06 UDer v1.1
-    * Without changes.
-* 2020-05 UDer v1.0
-    * Replacing LEMIDs to IDs in the tenth JSON-encoded column.
-* 2019-09 UDer v0.5
-    * Including Morphological Database from the English WordNet v3.0 to the UDer collection.
-    * Manual harmonization.
-
-
 <pre>
 === Machine-readable metadata =================================================
 Resource: The Morpho-Semantic Database v1.0

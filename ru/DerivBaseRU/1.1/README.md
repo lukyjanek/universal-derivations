@@ -40,15 +40,6 @@ The resource is licensed under the Apache License version 2.0 (Apache-2.0).
 License text is available in the file `LICENSE.txt`.
 
 
-# Changelog
-
-* 2020-06 UDer v1.1
-    * Without changes.
-* 2020-05 UDer v1.0
-    * Including DerivBase.Ru v1.0 to the UDer collection.
-    * Automatic harmonization using Machine Learning.
-
-
 <pre>
 === Machine-readable metadata =================================================
 Resource: DerivBase.Ru

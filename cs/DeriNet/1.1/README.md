@@ -41,18 +41,6 @@ The resource is licensed under the Creative Commons Attribution-NonCommercial-Sh
 License text is available in the file `LICENSE.txt`.
 
 
-# Changelog
-
-* 2020-06 UDer v1.1
-    * Without changes.
-* 2020-05 UDer v1.0
-    * Without changes.
-* 2019-09 UDer v0.5
-    * Including DeriNet v2.0 to the UDer collection.
-    * Original part-of-speech categories unified.
-    * No harmonization of the data structure needed.
-
-
 <pre>
 === Machine-readable metadata =================================================
 Resource: DeriNet

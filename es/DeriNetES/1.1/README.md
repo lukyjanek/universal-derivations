@@ -40,18 +40,6 @@ The resource is licensed under the Creative Commons Attribution-NonCommercial-Sh
 License text is available in the file `LICENSE.txt`.
 
 
-# Changelog
-
-* 2020-06 UDer v1.1
-    * Update new version of DeriNet.ES.
-    * No harmonization of the data structure needed.
-* 2020-05 UDer v1.0
-    * Without changes.
-* 2019-09 UDer v0.5
-    * Including the DeriNet.ES to the UDer collection.
-    * No harmonization of the data structure needed.
-
-
 <pre>
 === Machine-readable metadata =================================================
 Resource: DeriNet.ES

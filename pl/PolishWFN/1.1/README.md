@@ -38,17 +38,6 @@ The resource is licensed under the Creative Commons Attribution-NonCommercial-Sh
 License, sublicenses and copyright texts are available in the file `LICENSE.txt`.
 
 
-# Changelog
-
-* 2020-06 UDer v1.1
-    * Without changes.
-* 2020-05 UDer v1.0
-    * Without changes.
-* 2019-09 UDer v0.5
-    * Including the Polish Word-Formation Network v0.5 to the UDer collection.
-    * No harmonization of the data structure needed.
-
-
 <pre>
 === Machine-readable metadata =================================================
 Resource: Polish Word-Formation Network
