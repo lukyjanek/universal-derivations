@@ -71,7 +71,7 @@ UDer-collection:
 	$(MAKE) UDer-resource version=$(version) language=ru resource=DerivBaseRU
 	$(MAKE) UDer-resource version=$(version) language=en resource=CatVar
 	$(MAKE) UDer-resource version=$(version) language=en resource=ECelex
-	$(MAKE) UDer-resource version=$(version) language=du resource=DCelex
+	$(MAKE) UDer-resource version=$(version) language=nl resource=DCelex
 	$(MAKE) UDer-resource version=$(version) language=de resource=GCelex
 	$(MAKE) UDer-resource version=$(version) language=it resource=DerIvaTario
 	$(MAKE) UDer-resource version=$(version) language=hr resource=DerivBaseHR

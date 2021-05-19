@@ -5,6 +5,7 @@
 
 * whole collection
     * newly added resources: ... TODO ...
+    * du-DCelex changed to nl-DCelex
     * add RAEDME.md and CHANGELOG.md for the whole collection
     * remove individual changelogs sections from individual README.md files in appropriate resources
     * automatise the creation all README.md, especially the part summarising statistics of individual resources
@@ -15,7 +16,6 @@
     * cs-EtymWordNetCS
     * de-DErivBase
     * de-GCelex
-    * du-DCelex
     * en-CatVar
     * en-ECelex
     * en-WordNet
@@ -28,6 +28,7 @@
     * hr-DerivBaseHR
     * it-DerIvaTario
     * la-WFL
+    * nl-DCelex
     * pl-EtymWordNetPL
     * pl-PolishWFN
     * pt-EtymWordNetPT

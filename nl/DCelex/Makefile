@@ -1,4 +1,4 @@
-.PHONY: clean  get-data-v10 UDer-1.0-du-DCelex.tsv 01-harm-annotation
+.PHONY: clean  get-data-v10 UDer-1.0-nl-DCelex.tsv 01-harm-annotation
 SHELL=/bin/bash
 
 ../../py3env/:
@@ -19,7 +19,7 @@ get-data-v10: ../../py3env/ ../../@input-data/celex2.zip
 	../../py3env/bin/python3 1.0/extract_relations.py original-data/celex2/dutch/dml/dml.cd 1.0/relations.tsv 1.0/singletons.tsv 1.0/compounds.tsv
 
 
-UDer-1.0-du-DCelex.tsv: ../../derinet2/ ../../py3env/ get-data-v10
+UDer-1.0-nl-DCelex.tsv: ../../derinet2/ ../../py3env/ get-data-v10
 	# 1. get-data-v10
 	# 2. proces annotations
 	../../py3env/bin/python3 ../../@shared-scripts/annot_data.py -i 1.0/relations.tsv -o 1.0/prep-to-predict.tsv -c
@@ -45,12 +45,12 @@ UDer-1.0-du-DCelex.tsv: ../../derinet2/ ../../py3env/ get-data-v10
 	cp 1.0/harmonizedcelex.py ../../derinet2/derinet/modules/uder/
 	../../py3env/bin/python3 ../../derinet2/process_scenario.py \
 		uder.HarmonizeDCelex 1.0/harmonized.pickle \
-		Save UDer-1.0-du-DCelex.tsv
-	../../py3env/bin/python3 1.0/edit-json-column.py UDer-1.0-du-DCelex.tsv > UDer-1.0-du-DCelex-v2.tsv
-	mv UDer-1.0-du-DCelex-v2.tsv UDer-1.0-du-DCelex.tsv
+		Save UDer-1.0-nl-DCelex.tsv
+	../../py3env/bin/python3 1.0/edit-json-column.py UDer-1.0-nl-DCelex.tsv > UDer-1.0-nl-DCelex-v2.tsv
+	mv UDer-1.0-nl-DCelex-v2.tsv UDer-1.0-nl-DCelex.tsv
 
-UDer-1.1-du-DCelex.tsv: UDer-1.0-du-DCelex.tsv
-	cp UDer-1.0-du-DCelex.tsv UDer-1.1-du-DCelex.tsv
+UDer-1.1-nl-DCelex.tsv: UDer-1.0-nl-DCelex.tsv
+	cp UDer-1.0-nl-DCelex.tsv UDer-1.1-nl-DCelex.tsv
 
 
 01-harm-annotation: ../../py3env/ get-data-v10
@@ -58,5 +58,5 @@ UDer-1.1-du-DCelex.tsv: UDer-1.0-du-DCelex.tsv
 
 
 clean:
-	rm -rf original-data/ 1.0/relations.tsv 1.0/singletons.tsv 1.0/compounds.tsv 1.0/prep-to-predict.tsv 1.0/to-predict.tsv 1.0/predicted.tsv 1.0/01-harm-annotated/all-annotations.tsv 1.0/harmonized.pickle UDer-1.0-du-DCelex.tsv
-	rm -rf UDer-1.1-du-DCelex.tsv
+	rm -rf original-data/ 1.0/relations.tsv 1.0/singletons.tsv 1.0/compounds.tsv 1.0/prep-to-predict.tsv 1.0/to-predict.tsv 1.0/predicted.tsv 1.0/01-harm-annotated/all-annotations.tsv 1.0/harmonized.pickle UDer-1.0-nl-DCelex.tsv
+	rm -rf UDer-1.1-nl-DCelex.tsv
