@@ -39,7 +39,7 @@ UDer-resource: py3env/ derinet2/
 			mv $(language)/$(resource)/UDer-$(version)-$(language)-$(resource)-rules.txt UDer-$(version)/$(language)-$(resource)/ ;\
 		fi ;\
 		# clean pipeline ;\
-		cd $(language)/$(resource)/ && $(MAKE) clean ;\
+		cd $(language)/$(resource)/ && $(MAKE) clean && cd ../../ ;\
 		# calculate statistics and add them to README.md ;\
 		py3env/bin/python3 @data-statistics/uder_statistics.py UDer-$(version)/$(language)-$(resource)/UDer-$(version)-$(language)-$(resource).tsv >> UDer-$(version)/$(language)-$(resource)/README.md ;\
 		echo -e "===============================================================================\n</pre>" >> UDer-$(version)/$(language)-$(resource)/README.md ;\
