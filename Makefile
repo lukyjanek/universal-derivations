@@ -41,7 +41,7 @@ UDer-resource: py3env/ derinet2/
 		# clean pipeline ;\
 		cd $(language)/$(resource)/ && $(MAKE) clean ;\
 		# calculate statistics and add them to README.md ;\
-		py3env/bin/python3 uder_statistics.py UDer-$(version)/$(language)-$(resource)/UDer-$(version)-$(language)-$(resource).tsv >> UDer-$(version)/$(language)-$(resource)/README.md ;\
+		py3env/bin/python3 @data-statistics/uder_statistics.py UDer-$(version)/$(language)-$(resource)/UDer-$(version)-$(language)-$(resource).tsv >> UDer-$(version)/$(language)-$(resource)/README.md ;\
 		echo -e "===============================================================================\n</pre>" >> UDer-$(version)/$(language)-$(resource)/README.md ;\
 	fi
 
@@ -92,3 +92,5 @@ UDer-collection:
 	# $(MAKE) UDer-resource version=$(version) language=is resource=EtymWordNetIS
 	# $(MAKE) UDer-resource version=$(version) language=ga resource=EtymWordNetGA
 	find UDer-$(version)/ -type f -name '*.tsv' | while read file; do gzip $$file; done
+	cp CHANGELOG.md UDer-$(version)/
+	cp README.md UDer-$(version)/
