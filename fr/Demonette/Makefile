@@ -19,7 +19,7 @@ get-data-v05: ../../py3env/
 UDer-0.5-fr-Demonette.tsv: ../../derinet2/ ../../py3env/ get-data-v05
 	# 1. get-data-v05
 	# 2. proces annotations
-	../../py3env/bin/python3 ../../annot_data.py -i 0.5/01-harm-annotated/annotation-data-1.json -o 0.5/01-harm-annotated/all-annotations.tsv -j2c
+	../../py3env/bin/python3 ../../@shared-scripts/annot_data.py -i 0.5/01-harm-annotated/annotation-data-1.json -o 0.5/01-harm-annotated/all-annotations.tsv -j2c
 	# 3. harmonise
 	../../py3env/bin/python3 0.5/spanning_trees.py -r 0.5/relations.tsv -w 0.5/01-harm-annotated/all-annotations.tsv -o 0.5/harmonized.pickle
 	mkdir -p ../../derinet2/derinet/modules/uder
@@ -38,7 +38,7 @@ UDer-1.1-fr-Demonette.tsv: UDer-1.0-fr-Demonette.tsv
 
 
 01-harm-annotation: ../../py3env/ get-data-v05
-	../../py3env/bin/python3 ../../annot_data.py -i 0.5/relations.tsv -o 0.5/01-harm-annotated/annotation-data.json -j
+	../../py3env/bin/python3 ../../@shared-scripts/annot_data.py -i 0.5/relations.tsv -o 0.5/01-harm-annotated/annotation-data.json -j
 
 
 clean:

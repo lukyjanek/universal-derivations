@@ -24,9 +24,9 @@ get-data-vxx: ../../py3env/ ../../@input-data/etymwn-20130208.zip
 UDer-x.x-ga-EtymWordNetGA.tsv: ../../derinet2/ ../../py3env/ get-data-vxx
 	# 1. get-data-vxx
 	# 2. proces annotations
-	../../py3env/bin/python3 ../../annot_data.py -i x.x/relations.tsv -o x.x/prep-to-predict.tsv -c
+	../../py3env/bin/python3 ../../@shared-scripts/annot_data.py -i x.x/relations.tsv -o x.x/prep-to-predict.tsv -c
 	cat x.x/prep-to-predict.tsv | grep ^. | cut -f 2,3 > x.x/to-predict.tsv
-	../../py3env/bin/python3 ../../annot_data.py -i x.x/01-harm-annotated/annotation-data.json.1 -o x.x/01-harm-annotated/all-annotations.tsv -j2c
+	../../py3env/bin/python3 ../../@shared-scripts/annot_data.py -i x.x/01-harm-annotated/annotation-data.json.1 -o x.x/01-harm-annotated/all-annotations.tsv -j2c
 	# 3. machine learning
 
 	# # 3. harmonise

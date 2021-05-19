@@ -36,7 +36,7 @@ from sklearn.metrics import recall_score
 from sklearn.metrics import precision_score
 from sklearn.metrics import f1_score
 
-sys.path.append(os.path.realpath('../..'))
+sys.path.append(os.path.realpath('../../@shared-scripts/'))
 from feature_vector import make_vector  # noqa: E402
 from split_data import split_data  # noqa: E402
 

@@ -24,7 +24,7 @@ get-data-v10: ../../py3env/ ../../@input-data/etymwn-20130208.zip
 UDer-1.0-gd-EtymWordNetGD.tsv: ../../derinet2/ ../../py3env/ get-data-v10
 	# 1. get-data-v10
 	# 2. proces annotations
-	../../py3env/bin/python3 ../../annot_data.py -i 1.0/01-harm-annotated/annotation-data-1.json -o 1.0/01-harm-annotated/all-annotations.tsv -j2c
+	../../py3env/bin/python3 ../../@shared-scripts/annot_data.py -i 1.0/01-harm-annotated/annotation-data-1.json -o 1.0/01-harm-annotated/all-annotations.tsv -j2c
 	# 3. harmonise
 	../../py3env/bin/python3 1.0/spanning_trees.py -r 1.0/relations.tsv -w 1.0/01-harm-annotated/all-annotations.tsv -o 1.0/harmonized.pickle
 	mkdir -p ../../derinet2/derinet/modules/uder
@@ -40,7 +40,7 @@ UDer-1.1-gd-EtymWordNetGD.tsv: UDer-1.0-gd-EtymWordNetGD.tsv
 
 
 01-harm-annotation: ../../py3env/ get-data-v10
-	../../py3env/bin/python3 ../../annot_data.py -i 1.0/relations.tsv -o 1.0/01-harm-annotated/annotation-data.json -j
+	../../py3env/bin/python3 ../../@shared-scripts/annot_data.py -i 1.0/relations.tsv -o 1.0/01-harm-annotated/annotation-data.json -j
 
 
 clean:
