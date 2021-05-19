@@ -65,21 +65,5 @@ Harmonized version: DeriNet v2.0
 Data source: https://github.com/vidraj/derinet/raw/master/data/releases/cs/derinet-2-0.tsv.gz
 Data available since: UDer v0.5
 Harmonization: default
-Lemmas: 1027665
-Relations: 809282
-Families: 218383
-Singletons: 96208
-Avarage tree size: 4.7
-Avarage tree depth: 0.8
-Avarage tree out-degree: 1.1
-Maximum tree size: 1638
-Maximum tree depth: 10
-Maximum tree out-degree: 40
-Part-of-speech: ADJ, 34.8; ADV, 15.8; NOUN, 44.0; VERB, 5.5
-Derivational relations: 808682
-Conversion relations: 0
-Compounding relations: 600
 Common features: Segmentations; Semantic labels; Morphological categories
 JSON features: techlemma; is_compound; segmentation
-===============================================================================
-</pre>

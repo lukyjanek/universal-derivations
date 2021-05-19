@@ -74,21 +74,5 @@ Harmonized version: 2.1
 Data source: https://gitlab.keeleressursid.ee/avalik/data/raw/master/estwn/estwn-et-2.1.0.wip.xml
 Data available since: UDer v0.5
 Harmonization: manual
-Lemmas: 988
-Relations: 507
-Families: 481
-Singletons: 22
-Avarage tree size: 2.1
-Avarage tree depth: 1.0
-Avarage tree out-degree: 1.0
-Maximum tree size: 3
-Maximum tree depth: 2
-Maximum tree out-degree: 3
-Part-of-speech: ADJ, 28.9; ADV, 47.3; NOUN, 15.9; VERB, 7.9
-Derivational relations: 507
-Conversion relations: 0
-Compounding relations: 0
 Common features: none
 JSON features: was_in_family_with; other_parents
-===============================================================================
-</pre>

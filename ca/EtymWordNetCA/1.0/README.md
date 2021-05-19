@@ -86,21 +86,5 @@ Harmonized version: 2013
 Data source: https://cs.rutgers.edu/~gd343/downloads/etymwn-20130208.zip
 Data available since: UDer v1.0
 Harmonization: manual
-Lemmas: 7496
-Relations: 4568
-Families: 2928
-Singletons: 8
-Avarage tree size: 2.6
-Avarage tree depth: 1.1
-Avarage tree out-degree: 1.5
-Maximum tree size: 13
-Maximum tree depth: 4
-Maximum tree out-degree: 13
-Part-of-speech: , 100.0
-Derivational relations: 4568
-Conversion relations: 0
-Compounding relations: 0
 Common features: none
 JSON features: was_in_family_with; other_parents
-===============================================================================
-</pre>

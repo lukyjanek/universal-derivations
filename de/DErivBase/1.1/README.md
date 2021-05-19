@@ -84,21 +84,5 @@ Harmonized version: 2.0
 Data source: http://www.ims.uni-stuttgart.de/forschung/ressourcen/lexika/DErivBase/DErivBase-v2.0.zip
 Data available since: UDer v0.5
 Harmonization: automatic
-Lemmas: 280775
-Relations: 43368
-Families: 237407
-Singletons: 216982
-Avarage tree size: 1.2
-Avarage tree depth: 0.1
-Avarage tree out-degree: 0.1
-Maximum tree size: 46
-Maximum tree depth: 5
-Maximum tree out-degree: 13
-Part-of-speech: ADJ, 9.9; NOUN, 85.5; VERB, 4.6
-Derivational relations: 43368
-Conversion relations: 0
-Compounding relations: 0
 Common features: Morphological categories; Derivational rules
 JSON features: was_in_family_with; other_parents
-===============================================================================
-</pre>

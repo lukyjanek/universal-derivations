@@ -67,21 +67,5 @@ Harmonized version: 1.0
 Data source: http://takelab.fer.hr/data/DerivBase.hr.v1.tar.gz
 Data available since: UDer v1.0
 Harmonization: automatic
-Lemmas: 99606
-Relations: 35289
-Families: 64317
-Singletons: 50100
-Avarage tree size: 1.5
-Avarage tree depth: 0.3
-Avarage tree out-degree: 0.4
-Maximum tree size: 945
-Maximum tree depth: 21
-Maximum tree out-degree: 863
-Part-of-speech: ADJ, 29.6; NOUN, 58.7; VERB, 11.7
-Derivational relations: 35289
-Conversion relations: 0
-Compounding relations: 0
 Common features: none
 JSON features: was_in_family_with; other_parents
-===============================================================================
-</pre>

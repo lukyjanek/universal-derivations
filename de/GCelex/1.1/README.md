@@ -67,21 +67,5 @@ Harmonized version: 2.0
 Data source: internal
 Data available since: UDer v1.0
 Harmonization: automatic
-Lemmas: 53282
-Relations: 13553
-Families: 39729
-Singletons: 34156
-Avarage tree size: 1.3
-Avarage tree depth: 0.2
-Avarage tree out-degree: 0.3
-Maximum tree size: 39
-Maximum tree depth: 11
-Maximum tree out-degree: 35
-Part-of-speech: ADJ, 17.5; ADP, 0.4; ADV, 2.4; NOUN, 53.7; NUM, 0.4; VERB, 17.8; X, 7.8
-Derivational relations: 10990
-Conversion relations: 0
-Compounding relations: 2563
 Common features: none
 JSON features: was_in_family_with; other_parents; segmentation_hierarch; segmentation; morpheme_order
-===============================================================================
-</pre>

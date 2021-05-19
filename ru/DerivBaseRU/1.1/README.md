@@ -66,21 +66,5 @@ Harmonized version: 1.0
 Data source: https://github.com/s231644/DerivBaseRu/tree/master/data/wiktionary
 Data available since: UDer v1.0
 Harmonization: automatic
-Lemmas: 270473
-Relations: 133759
-Families: 136714
-Singletons: 116036
-Avarage tree size: 2.0
-Avarage tree depth: 0.3
-Avarage tree out-degree: 0.4
-Maximum tree size: 1142
-Maximum tree depth: 13
-Maximum tree out-degree: 36
-Part-of-speech: ADJ, 18.1; ADV, 3.1; NOUN, 61.6; NUM, 0.0; VERB, 17.2
-Derivational relations: 133759
-Conversion relations: 0
-Compounding relations: 0
 Common features: none; Derivational rules
 JSON features: was_in_family_with; other_parents
-===============================================================================
-</pre>

@@ -66,21 +66,5 @@ Harmonized version: 0.5
 Data source: http://ufal.mff.cuni.cz/~zabokrtsky/derinet/polish-wfn-0.5.zip
 Data available since: UDer v0.5
 Harmonization: default
-Lemmas: 262887
-Relations: 189217
-Families: 73670
-Singletons: 41332
-Avarage tree size: 3.6
-Avarage tree depth: 1.0
-Avarage tree out-degree: 1.1
-Maximum tree size: 214
-Maximum tree depth: 8
-Maximum tree out-degree: 38
-Part-of-speech: none
-Derivational relations: 189217
-Conversion relations: 0
-Compounding relations: 0
 Common features: none
 JSON features: techlemma
-===============================================================================
-</pre>

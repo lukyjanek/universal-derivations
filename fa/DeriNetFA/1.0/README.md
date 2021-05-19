@@ -64,21 +64,5 @@ Harmonized version: 0.5
 Data source: internal
 Data available since: UDer v0.5
 Harmonization: default
-Lemmas: 43357
-Relations: 35745
-Families: 7612
-Singletons: 0
-Avarage tree size: 5.7
-Avarage tree depth: 1.5
-Avarage tree out-degree: 3.3
-Maximum tree size: 180
-Maximum tree depth: 6
-Maximum tree out-degree: 114
-Part-of-speech: , 100.0
-Derivational relations: 35745
-Conversion relations: 0
-Compounding relations: 0
 Common features: none
 JSON features: none
-===============================================================================
-</pre>

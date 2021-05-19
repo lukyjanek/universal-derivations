@@ -67,21 +67,5 @@ Harmonized version: 2014
 Data source: https://github.com/own-pt/nomlex-pt/raw/master/nomlex-pt.rdf.gz
 Data available since: UDer v0.5
 Harmonization: manual
-Lemmas: 7020
-Relations: 4201
-Families: 2819
-Singletons: 17
-Avarage tree size: 2.5
-Avarage tree depth: 1.0
-Avarage tree out-degree: 1.5
-Maximum tree size: 7
-Maximum tree depth: 1
-Maximum tree out-degree: 7
-Part-of-speech: NOUN, 59.8; VERB, 40.2
-Derivational relations: 4201
-Conversion relations: 0
-Compounding relations: 0
 Common features: none
 JSON features: was_in_family_with; other_parents
-===============================================================================
-</pre>

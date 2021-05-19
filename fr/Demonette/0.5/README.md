@@ -64,21 +64,5 @@ Harmonized version: Démonette v1.2
 Data source: http://redac.univ-tlse2.fr/lexiques/demonette/demonette-1.2.zip
 Data available since: UDer v0.5
 Harmonization: manual
-Lemmas: 21290
-Relations: 13808
-Families: 7482
-Singletons: 68
-Avarage tree size: 2.8
-Avarage tree depth: 1.1
-Avarage tree out-degree: 1.8
-Maximum tree size: 12
-Maximum tree depth: 4
-Maximum tree out-degree: 8
-Part-of-speech: ADJ, 2.5; NOUN, 63.0; VERB, 34.5
-Derivational relations: 13808
-Conversion relations: 0
-Compounding relations: 0
 Common features: Semantic labels; Morphological categories
 JSON features: was_in_family_with; other_parents; suffix; in_subparadigm_with
-===============================================================================
-</pre>

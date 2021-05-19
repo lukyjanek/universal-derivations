@@ -74,21 +74,5 @@ Harmonized version: FinnWordNet v2.0
 Data source: https://github.com/frankier/fiwn/raw/master/data/rels/fiwn-lexrels.tsv
 Data available since: UDer v0.5
 Harmonization: automatic
-Lemmas: 20035
-Relations: 13687
-Families: 6348
-Singletons: 3
-Avarage tree size: 3.2
-Avarage tree depth: 1.7
-Avarage tree out-degree: 1.3
-Maximum tree size: 36
-Maximum tree depth: 9
-Maximum tree out-degree: 13
-Part-of-speech: ADJ, 29.2; NOUN, 55.3; VERB, 15.5
-Derivational relations: 13687
-Conversion relations: 0
-Compounding relations: 0
 Common features: none
 JSON features: was_in_family_with; other_parents
-===============================================================================
-</pre>

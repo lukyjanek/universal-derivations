@@ -68,21 +68,5 @@ Harmonized version: 1.0
 Data source: http://derivatario.sns.it/derivatario.csv
 Data available since: UDer v1.0
 Harmonization: automatic
-Lemmas: 8267
-Relations: 1787
-Families: 6480
-Singletons: 5257
-Avarage tree size: 1.3
-Avarage tree depth: 0.2
-Avarage tree out-degree: 0.2
-Maximum tree size: 13
-Maximum tree depth: 4
-Maximum tree out-degree: 6
-Part-of-speech: ADJ, 26.4; ADV, 8.5; NOUN, 50.9; VERB, 14.0; X, 0.1
-Derivational relations: 1787
-Conversion relations: 0
-Compounding relations: 0
 Common features: none
 JSON features: was_in_family_with; other_parents; original_id; segmentation
-===============================================================================
-</pre>

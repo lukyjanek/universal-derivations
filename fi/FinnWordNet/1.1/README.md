@@ -82,21 +82,5 @@ Harmonized version: 2.0
 Data source: https://github.com/frankier/fiwn/raw/master/data/rels/fiwn-lexrels.tsv
 Data available since: UDer v0.5
 Harmonization: automatic
-Lemmas: 20035
-Relations: 11850
-Families: 8185
-Singletons: 1560
-Avarage tree size: 2.4
-Avarage tree depth: 1.0
-Avarage tree out-degree: 1.2
-Maximum tree size: 18
-Maximum tree depth: 5
-Maximum tree out-degree: 13
-Part-of-speech: ADJ, 29.2; NOUN, 55.3; VERB, 15.5
-Derivational relations: 11850
-Conversion relations: 0
-Compounding relations: 0
 Common features: none
 JSON features: was_in_family_with; other_parents
-===============================================================================
-</pre>

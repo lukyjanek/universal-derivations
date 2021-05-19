@@ -71,21 +71,5 @@ Harmonized version: 1.0
 Data source: http://wordnetcode.princeton.edu/standoff-files/morphosemantic-links.xls
 Data available since: UDer v0.5
 Harmonization: manual
-Lemmas: 13813
-Relations: 7855
-Families: 5958
-Singletons: 65
-Avarage tree size: 2.3
-Avarage tree depth: 1.0
-Avarage tree out-degree: 1.3
-Maximum tree size: 6
-Maximum tree depth: 1
-Maximum tree out-degree: 6
-Part-of-speech: NOUN, 56.9; VERB, 43.1
-Derivational relations: 7855
-Conversion relations: 0
-Compounding relations: 0
 Common features: Semantic labels
 JSON features: was_in_family_with; other_parents
-===============================================================================
-</pre>

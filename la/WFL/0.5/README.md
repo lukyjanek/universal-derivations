@@ -63,21 +63,5 @@ Harmonized version: Word Formation Latin v2017
 Data source: https://raw.githubusercontent.com/CIRCSE/LEMLAT3/master/lemlat_db_01-08-2018.sql
 Data available since: UDer v0.5
 Harmonization: manual
-Lemmas: 29708
-Relations: 24388
-Families: 5320
-Singletons: 62
-Avarage tree size: 5.6
-Avarage tree depth: 1.5
-Avarage tree out-degree: 3.0
-Maximum tree size: 131
-Maximum tree depth: 6
-Maximum tree out-degree: 42
-Part-of-speech: ADJ, 27.4; AUX, 0.4; NOUN, 46.1; PRON, 0.3; VERB, 23.8; X, 2.0
-Derivational relations: 18758
-Conversion relations: 3883
-Compounding relations: 1747
 Common features: Morphological categories; Compounding; Conversion
 JSON features: was_in_family_with; other_parents
-===============================================================================
-</pre>

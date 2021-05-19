@@ -69,21 +69,5 @@ Harmonized version: 2019
 Data source: https://raw.githubusercontent.com/CIRCSE/LEMLAT3/master/lemlat_db_26-07-2019.sql
 Data available since: UDer v0.5
 Harmonization: manual
-Lemmas: 36417
-Relations: 32414
-Families: 4003
-Singletons: 121
-Avarage tree size: 9.1
-Avarage tree depth: 1.7
-Avarage tree out-degree: 4.3
-Maximum tree size: 524
-Maximum tree depth: 6
-Maximum tree out-degree: 236
-Part-of-speech: ADJ, 29.0; AUX, 0.4; NOUN, 46.1; PRON, 0.3; VERB, 21.2; X, 3.0
-Derivational relations: 25212
-Conversion relations: 4929
-Compounding relations: 2273
 Common features: Morphological categories; Compounding; Conversion
 JSON features: was_in_family_with; other_parents
-===============================================================================
-</pre>

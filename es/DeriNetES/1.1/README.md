@@ -69,21 +69,5 @@ Harmonized version: 0.6
 Data source: https://ufal.mff.cuni.cz/~vidra/derinet/derinet-es-2020-06-10.tsv
 Data available since: UDer v0.5
 Harmonization: default
-Lemmas: 151173
-Relations: 42825
-Families: 108348
-Singletons: 92912
-Avarage tree size: 1.4
-Avarage tree depth: 0.2
-Avarage tree out-degree: 0.3
-Maximum tree size: 53
-Maximum tree depth: 5
-Maximum tree out-degree: 18
-Part-of-speech: none
-Derivational relations: 42825
-Conversion relations: 0
-Compounding relations: 0
 Common features: none
 JSON features: techlemma
-===============================================================================
-</pre>

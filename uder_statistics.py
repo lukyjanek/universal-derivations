@@ -17,6 +17,7 @@ POS = defaultdict(int)
 DERIVATIONS = 0
 COMPOUNDING = 0
 CONVERSION = 0
+VARIANTS = 0
 DEPTH = 0
 WIDTH = 0
 MAXSIZE = 0
@@ -54,6 +55,8 @@ with open(sys.argv[1], mode='r', encoding='U8') as f:
                 COMPOUNDING += 1
             elif 'Type=Conversion' in line[7]:
                 CONVERSION += 1
+            elif 'Type=Variant' in line[7]:
+                VARIANTS += 1
 
 families.append(relations)
 if len(relations) > MAXSIZE:
@@ -107,19 +110,20 @@ else:
 print('Derivational relations:', DERIVATIONS)
 print('Conversion relations:', CONVERSION)
 print('Compounding relations:', COMPOUNDING)
+print('Variant relations:', VARIANTS)
 
-print('Table:')
-print(format(LEMMAS, ',d'),
-      format(RELATIONS, ',d'),
-      format(FAMILIES, ',d'),
-      format(SINGLETONS, ',d'),
-      str(round(LEMMAS/FAMILIES, 1)) + ' / ' + str(MAXSIZE),
-      str(round(DEPTH/FAMILIES, 1)) + ' / ' + str(MAXDEPTH),
-      str(round(WIDTH/FAMILIES, 1)) + ' / ' + str(MAXWIDTH),
-      str(round(POS['NOUN']/LEMMAS*100)),
-      str(round(POS['ADJ']/LEMMAS*100)),
-      str(round(POS['VERB']/LEMMAS*100)),
-      str(round(POS['ADV']/LEMMAS*100)),
-      str(round(sum([n for p, n in POS.items()
-                     if p not in ('NOUN', 'ADJ', 'VERB', 'ADV', '')])/LEMMAS*100)),
-      sep=' & ')
+# print('Table:')
+# print(format(LEMMAS, ',d'),
+#       format(RELATIONS, ',d'),
+#       format(FAMILIES, ',d'),
+#       format(SINGLETONS, ',d'),
+#       str(round(LEMMAS/FAMILIES, 1)) + ' / ' + str(MAXSIZE),
+#       str(round(DEPTH/FAMILIES, 1)) + ' / ' + str(MAXDEPTH),
+#       str(round(WIDTH/FAMILIES, 1)) + ' / ' + str(MAXWIDTH),
+#       str(round(POS['NOUN']/LEMMAS*100)),
+#       str(round(POS['ADJ']/LEMMAS*100)),
+#       str(round(POS['VERB']/LEMMAS*100)),
+#       str(round(POS['ADV']/LEMMAS*100)),
+#       str(round(sum([n for p, n in POS.items()
+#                      if p not in ('NOUN', 'ADJ', 'VERB', 'ADV', '')])/LEMMAS*100)),
+#       sep=' & ')
