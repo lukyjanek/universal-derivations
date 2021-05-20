@@ -1,6 +1,5 @@
 py3env/*
 derinet2/*
 UDer-*/*
-UDer-*-statistics.txt
 @input-data/[a-zA-Z0-9]*
 __pycache__/
