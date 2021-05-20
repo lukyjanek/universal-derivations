@@ -4,7 +4,7 @@
 ## UDer v1.1 (2021-09)
 
 * whole collection
-    * newly added resources: ... TODO ...
+    * newly added resources: ru-DeriNetRU, ... TODO ...
     * du-DCelex changed to nl-DCelex
     * add RAEDME.md and CHANGELOG.md for the whole collection
     * remove individual changelogs sections from individual README.md files in appropriate resources
@@ -12,32 +12,50 @@
 
 * individual resources ... TODO ...
     * ca-EtymWordNetCA
+        * Without changes.
     * cs-DeriNet
     * cs-EtymWordNetCS
+        * Without changes.
     * de-DErivBase
     * de-GCelex
+    * du-DCelex -> nl-DCelex
     * en-CatVar
     * en-ECelex
     * en-WordNet
+        * Without changes.
     * es-DeriNetES
+        * Update version of the original harmonised resource; newly harmonised version is DeriNet.ES 0.6 (2020-06-10).
     * et-EstWordNet
+        * Without changes.
     * fa-DeriNetFA
+        * Without changes.
     * fi-FinnWordNet
     * fr-Demonette
     * gd-EtymWordNetGD
+        * Without changes.
     * hr-DerivBaseHR
     * it-DerIvaTario
     * la-WFL
-    * nl-DCelex
     * pl-EtymWordNetPL
+        * Without changes.
     * pl-PolishWFN
+        * Without changes.
     * pt-EtymWordNetPT
+        * Without changes.
     * pt-NomLexPT
+        * Without changes.
+    * ru-DeriNetRU
+        * Include already harmonised data of DeriNet.RU 0.5 to UDer collection.
+        * No harmonization of the data structure needed.
     * ru-DerivBaseRU
     * ru-EtymWordNetRU
+        * Without changes.
     * sh-EtymWordNetSH
+        * Without changes.
     * sv-EtymWordNetSV
+        * Without changes.
     * tr-EtymWordNetTR
+        * Without changes.
 
 
 ---
