@@ -25,6 +25,7 @@
         * Without changes.
     * es-DeriNetES
         * Update version of the original harmonised resource; newly harmonised version is DeriNet.ES 0.6 (2020-06-10).
+        * No harmonization of the data structure needed.
     * et-EstWordNet
         * Without changes.
     * fa-DeriNetFA
@@ -36,6 +37,8 @@
     * hr-DerivBaseHR
     * it-DerIvaTario
     * la-WFL
+        * Update version of the original harmonised resource; newly harmonised version is from WFL GitHub repository, not from LEMLAT GitHub repository.
+        * Manual harmonization. Four families organised in weakly connected subgraphs were annotated manually.
     * pl-EtymWordNetPL
         * Without changes.
     * pl-PolishWFN
