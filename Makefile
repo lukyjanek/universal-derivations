@@ -1,7 +1,7 @@
 .PHONY: UDer-collection UDer-resource UDer-statistics
 SHELL=/bin/bash
 
-version:=1.1
+version:=1.0
 all: UDer-collection
 
 # install virtual environment (base)
