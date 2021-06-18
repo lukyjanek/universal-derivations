@@ -94,31 +94,19 @@ for family in nx.weakly_connected_components(G):
     B = F.copy()
 
     # find maximum spanning tree
-    # print(len(F.nodes))
-    if len(F.nodes) > 20000:
-        # aproximate spanning for extremely large families
-        F.remove_node('#VIRTUAL#')
+    if len(F.nodes()) > 2000:  # identify in subsequently growing tree
         E = nx.DiGraph()
-        for node in sorted(F.in_degree, key=lambda x: x[1]):
-            if node[1] < 1:
-                E.add_edge('#VIRTUAL#', node[0])
-                continue
-            pars = [(e, F[e[0]][e[1]]['weight']) for e in F.in_edges(node[0])]
-            for rel in sorted(pars, key=lambda x: x[1], reverse=True):
-                parent, child = rel[0]
-                if rel[1] < float(par.v):
-                    E.add_edge('#VIRTUAL#', child)
-                    break
-                E.add_edge(parent, child)
-                selected = True
-                s = E.subgraph(nx.shortest_path(E.to_undirected(), parent))
-                if not nx.is_tree(s) or not nx.is_arborescence(s):
-                    E.remove_edge(parent, child)
-                    selected = False
-                if selected:
-                    break
-    else:
-        # traditional spanning
+        for chunk_of_nodes in [list(F.nodes())[i:i+50]
+                               for i in range(0, len(list(F.nodes())), 50)]:
+            for node in chunk_of_nodes:
+                incomings = F.in_edges(node, data=True)
+                for item in incomings:
+                    E.add_edge(item[0], item[1], weight=item[2]['weight'])
+
+            edm = nx.algorithms.tree.branchings.Edmonds(E, seed=24)
+            E = edm.find_optimum(attr='weight', default=par.v, kind='max',
+                                 style='arborescence')
+    else:  # traditional spanning
         edm = nx.algorithms.tree.branchings.Edmonds(F, seed=24)
         E = edm.find_optimum(attr='weight', default=par.v, kind='max',
                              style='arborescence')
