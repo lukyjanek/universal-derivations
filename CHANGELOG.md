@@ -4,7 +4,7 @@
 ## UDer v1.1 (2021-09)
 
 * whole collection
-    * newly added resources: ... TODO ...
+    * newly added resources: ru-DeriNetRU, ... TODO ...
     * du-DCelex changed to nl-DCelex
     * add RAEDME.md and CHANGELOG.md for the whole collection
     * remove individual changelogs sections from individual README.md files in appropriate resources
@@ -14,12 +14,15 @@
     * ca-EtymWordNetCA
         * Without changes.
     * cs-DeriNet
+        * Update version of the original harmonised resource; newly harmonised version is DeriNet 2.1 (2021-??-??).
     * cs-EtymWordNetCS
         * Without changes.
     * de-DErivBase
+        * Re-annotate lexical negation and re-harmonise the data.
     * de-GCelex
     * du-DCelex -> nl-DCelex
     * en-CatVar
+        * Without changes.
     * en-ECelex
     * en-WordNet
         * Without changes.
@@ -31,12 +34,17 @@
     * fa-DeriNetFA
         * Without changes.
     * fi-FinnWordNet
+        * Without changes.
     * fr-Demonette
+        * Add lexemes related by directless relations in the original data.
+        * Remove feature 'in_subparadigm_with' from the data.
     * gd-EtymWordNetGD
         * Without changes.
     * hr-DerivBaseHR
+        * The procedure of finding spanning tree in large families was improved.
     * it-DerIvaTario
         * Lemmas were lowercased.
+        * The procedure of finding spanning tree in large families was improved.
     * la-WFL
         * Update version of the original harmonised resource; newly harmonised version is from WFL GitHub repository, not from LEMLAT GitHub repository.
         * Manual harmonization. Four families organised in weakly connected subgraphs were annotated manually.
@@ -52,6 +60,7 @@
         * Include already harmonised data of DeriNet.RU 0.5 to UDer collection.
         * No harmonization of the data structure needed.
     * ru-DerivBaseRU
+        * The procedure of finding spanning tree in large families was improved.
     * ru-EtymWordNetRU
         * Without changes.
     * sh-EtymWordNetSH
