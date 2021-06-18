@@ -85,34 +85,9 @@ for family in nx.weakly_connected_components(G):
     B = F.copy()
 
     # find maximum spanning tree
-    # print(len(F.nodes))
-    if len(F.nodes) > 20000:
-        # aproximate spanning for extremely large families
-        F.remove_node('#VIRTUAL#')
-        E = nx.DiGraph()
-        for node in sorted(F.in_degree, key=lambda x: x[1]):
-            if node[1] < 1:
-                E.add_edge('#VIRTUAL#', node[0])
-                continue
-            pars = [(e, F[e[0]][e[1]]['weight']) for e in F.in_edges(node[0])]
-            for rel in sorted(pars, key=lambda x: x[1], reverse=True):
-                parent, child = rel[0]
-                if rel[1] < float(par.v):
-                    E.add_edge('#VIRTUAL#', child)
-                    break
-                E.add_edge(parent, child)
-                selected = True
-                s = E.subgraph(nx.shortest_path(E.to_undirected(), parent))
-                if not nx.is_tree(s) or not nx.is_arborescence(s):
-                    E.remove_edge(parent, child)
-                    selected = False
-                if selected:
-                    break
-    else:
-        # traditional spanning
-        edm = nx.algorithms.tree.branchings.Edmonds(F, seed=24)
-        E = edm.find_optimum(attr='weight', default=par.v, kind='max',
-                             style='arborescence')
+    edm = nx.algorithms.tree.branchings.Edmonds(F, seed=24)
+    E = edm.find_optimum(attr='weight', default=par.v, kind='max',
+                         style='arborescence')
 
     # save family
     roots = [edge[1] for edge in E.edges if edge[0] == '#VIRTUAL#']

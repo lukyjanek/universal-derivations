@@ -66,9 +66,26 @@ UDer-1.0-de-DErivBase.tsv: ../../derinet2/ ../../py3env/ get-data-v05
 	../../py3env/bin/python3 1.0/edit-json-column.py UDer-1.0-de-DErivBase.tsv > UDer-1.0-de-DErivBase-v2.tsv
 	mv UDer-1.0-de-DErivBase-v2.tsv UDer-1.0-de-DErivBase.tsv
 
-UDer-1.1-de-DErivBase.tsv: UDer-1.0-de-DErivBase.tsv
-	cp UDer-1.0-de-DErivBase.tsv UDer-1.1-de-DErivBase.tsv
-	cp UDer-1.0-de-DErivBase-rules.txt UDer-1.1-de-DErivBase-rules.txt
+UDer-1.1-de-DErivBase.tsv: ../../derinet2/ ../../py3env/ get-data-v05
+	# 1. get-data-v05
+	mv 0.5/singletons.tsv 1.1/singletons.tsv
+	mv 0.5/relations.tsv 1.1/relations.tsv
+	cp original-data/derivbase/DErivBase-v1.4.1-rules.txt UDer-1.0-de-DErivBase-rules.txt
+	# 2. process annotations
+	../../py3env/bin/python3 ../../@shared-scripts/annot_data.py -i 1.1/relations.tsv -o 1.1/prep-to-predict.tsv -c
+	cat 1.1/prep-to-predict.tsv | grep ^. | cut -f 2,3 > 1.1/to-predict.tsv
+	../../py3env/bin/python3 ../../@shared-scripts/annot_data.py -i 1.1/03-harm-annotated/annotation-data-1.json -o 1.1/03-harm-annotated/all-annotations.tsv -j2c
+	# 3. machine learning
+	../../py3env/bin/python3 -B 1.0/predict_scores.py -rel 1.1/relations.tsv -a 1.1/03-harm-annotated/all-annotations.tsv -p 1.1/to-predict.tsv -m LOGR4 -w 1.1/predicted.tsv
+	# 4. harmonise
+	../../py3env/bin/python3 1.1/spanning_trees.py -s 1.1/singletons.tsv -r 1.1/relations.tsv -w 1.1/predicted.tsv -v 0.1 -o 1.1/harmonized.pickle
+	mkdir -p ../../derinet2/derinet/modules/uder
+	cp 1.1/harmonizederivbase.py ../../derinet2/derinet/modules/uder/
+	../../py3env/bin/python3 ../../derinet2/process_scenario.py \
+		uder.HarmonizeDerivBase 1.1/harmonized.pickle \
+		Save UDer-1.1-de-DErivBase.tsv
+	../../py3env/bin/python3 1.0/edit-json-column.py UDer-1.1-de-DErivBase.tsv > UDer-1.1-de-DErivBase-v2.tsv
+	mv UDer-1.1-de-DErivBase-v2.tsv UDer-1.1-de-DErivBase.tsv
 
 
 01-harm-annotation: ../../py3env/ get-data-v05
@@ -80,5 +97,5 @@ UDer-1.1-de-DErivBase.tsv: UDer-1.0-de-DErivBase.tsv
 
 clean:
 	rm -rf original-data/ 0.5/relations.tsv 0.5/singletons.tsv 0.5/prep-to-predict.tsv 0.5/to-predict.tsv 0.5/predicted.tsv 0.5/01-harm-annotated/all-annotations.tsv 0.5/harmonized.pickle UDer-0.5-de-DErivBase.tsv
-	rm -rf original-data/ 1.0/relations.tsv 1.0/singletons.tsv 1.0/prep-to-predict.tsv 1.0/to-predict.tsv 1.0/predicted.tsv 1.0/02-harm-annotated/all-annotations.tsv 1.0/harmonized.pickle UDer-1.0-de-DErivBase.tsv UDer-1.0-de-DErivBase.txt
-	rm -rf UDer-1.1-de-DErivBase.tsv UDer-1.1-de-DErivBase-rules.txt
+	rm -rf original-data/ 1.0/relations.tsv 1.0/singletons.tsv 1.0/prep-to-predict.tsv 1.0/to-predict.tsv 1.0/predicted.tsv 1.0/02-harm-annotated/all-annotations.tsv 1.0/harmonized.pickle UDer-1.0-de-DErivBase.tsv UDer-1.0-de-DErivBase-v2.tsv UDer-1.0-de-DErivBase-rules.txt
+	rm -rf original-data/ 1.1/relations.tsv 1.1/singletons.tsv 1.1/prep-to-predict.tsv 1.1/to-predict.tsv 1.1/predicted.tsv 1.1/03-harm-annotated/all-annotations.tsv 1.1/harmonized.pickle UDer-1.1-de-DErivBase.tsv UDer-1.1-de-DErivBase-v2.tsv UDer-1.1-de-DErivBase-rules.txt
