@@ -4,7 +4,7 @@
 ## UDer v1.1 (2021-09)
 
 * whole collection
-    * newly added resources: ru-DeriNetRU, ... TODO ...
+    * newly added resources: ... TODO ...
     * du-DCelex changed to nl-DCelex
     * add RAEDME.md and CHANGELOG.md for the whole collection
     * remove individual changelogs sections from individual README.md files in appropriate resources
@@ -36,6 +36,7 @@
         * Without changes.
     * hr-DerivBaseHR
     * it-DerIvaTario
+        * Lemmas were lowercased.
     * la-WFL
         * Update version of the original harmonised resource; newly harmonised version is from WFL GitHub repository, not from LEMLAT GitHub repository.
         * Manual harmonization. Four families organised in weakly connected subgraphs were annotated manually.
