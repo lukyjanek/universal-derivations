@@ -14,13 +14,13 @@ def construction(tag, entry):
     seg = ''
     rot = ''
     for i in entry.iter(tag):
-            for j in i.iter():
-                if j.tag == 'constructionalProcess':
-                    pro = j.text
-                elif j.tag == 'constructionalExponent':
-                    seg = j.text
-                elif j.tag == 'constructionalTheme':
-                    rot = j.text
+        for j in i.iter():
+            if j.tag == 'constructionalProcess':
+                pro = j.text
+            elif j.tag == 'constructionalExponent':
+                seg = j.text
+            elif j.tag == 'constructionalTheme':
+                rot = j.text
     return (pro, seg, rot)
 
 
@@ -30,6 +30,7 @@ root = tree.getroot()
 semantic_labels = defaultdict(set)
 segmentations = defaultdict(set)
 indirect = defaultdict(set)
+directless = defaultdict(set)
 relations = set()
 
 for entry in root.iter('morphologicalRelation'):
@@ -65,7 +66,10 @@ for entry in root.iter('morphologicalRelation'):
         indirect[c].add(p)
 
     else:
-        continue
+        p = entry[0][0].text + '_' + entry[0][1].text
+        c = entry[1][0].text + '_' + entry[1][1].text
+        directless[p].add(c)
+        directless[c].add(p)
 
     semantic_labels[parent + '_' + p_pos].add(p_sem)
     semantic_labels[child + '_' + c_pos].add(c_sem)
@@ -88,5 +92,8 @@ for rel in relations:
     p_inds = '|'.join(indirect[rel[0]])
     c_inds = '|'.join(indirect[rel[1]])
 
+    p_dless = '|'.join(directless[rel[0]])
+    c_dless = '|'.join(directless[rel[1]])
+
     print(*rel, p_sems, c_sems, '#'.join(p_segs), '#'.join(c_segs),
-          p_inds, c_inds, sep='\t')
+          p_inds, c_inds, p_dless, c_dless, sep='\t')
