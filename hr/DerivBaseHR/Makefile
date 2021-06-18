@@ -51,8 +51,27 @@ UDer-1.0-hr-DerivBaseHR.tsv: ../../derinet2/ ../../py3env/ get-data-v10
 	../../py3env/bin/python3 1.0/edit-json-column.py UDer-1.0-hr-DerivBaseHR.tsv > UDer-1.0-hr-DerivBaseHR-v2.tsv
 	mv UDer-1.0-hr-DerivBaseHR-v2.tsv UDer-1.0-hr-DerivBaseHR.tsv
 
-UDer-1.1-hr-DerivBaseHR.tsv: UDer-1.0-hr-DerivBaseHR.tsv
-	cp UDer-1.0-hr-DerivBaseHR.tsv UDer-1.1-hr-DerivBaseHR.tsv
+UDer-1.1-hr-DerivBaseHR.tsv: ../../derinet2/ ../../py3env/ get-data-v10
+	# 1. get-data-v10
+	# 2. proces annotations
+	../../py3env/bin/python3 ../../@shared-scripts/annot_data.py -i 1.0/relations.tsv -o 1.1/prep-to-predict.tsv -c
+	cat 1.1/prep-to-predict.tsv | grep ^. | cut -f 2,3 > 1.1/to-predict.tsv
+	../../py3env/bin/python3 ../../@shared-scripts/annot_data.py -i 1.1/02-harm-annotated/annotation-data-1.json -o 1.1/02-harm-annotated/all-annotations.tsv -j2c
+	# 3. machine learning
+	split -l 500000 1.1/to-predict.tsv -d 1.1/to-predict-part
+	for part in $$(ls -1 1.1/to-predict-part*) ; do \
+		../../py3env/bin/python3 -B 1.0/predict_scores.py -a 1.1/02-harm-annotated/all-annotations.tsv -p $$part -m DT -w 1.1/predicted.tsv ;\
+	done
+	rm -rf 1.1/to-predict-part*
+	# 4. harmonise
+	../../py3env/bin/python3 1.1/spanning_trees.py -s 1.0/singletons.tsv -r 1.0/relations.tsv -w 1.1/predicted.tsv -v 0.2 -o 1.1/harmonized.pickle
+	mkdir -p ../../derinet2/derinet/modules/uder
+	cp 1.1/harmonizederivbasehr.py ../../derinet2/derinet/modules/uder/
+	../../py3env/bin/python3 ../../derinet2/process_scenario.py \
+		uder.HarmonizeDerivBaseHR 1.1/harmonized.pickle \
+		Save UDer-1.1-hr-DerivBaseHR.tsv
+	../../py3env/bin/python3 1.0/edit-json-column.py UDer-1.1-hr-DerivBaseHR.tsv > UDer-1.1-hr-DerivBaseHR-v2.tsv
+	mv UDer-1.1-hr-DerivBaseHR-v2.tsv UDer-1.1-hr-DerivBaseHR.tsv
 
 
 01-harm-annotation: ../../py3env/ get-data-v10
@@ -60,6 +79,5 @@ UDer-1.1-hr-DerivBaseHR.tsv: UDer-1.0-hr-DerivBaseHR.tsv
 
 
 clean:
-	rm -rf original-data/ 1.0/relations.tsv 1.0/singletons.tsv 1.0/prep-to-predict.tsv 1.0/to-predict.tsv 1.0/predicted.tsv 1.0/01-harm-annotated/all-annotations.tsv 1.0/harmonized.pickle UDer-1.0-hr-DerivBaseHR.tsv
-	rm -rf uas-validation-eval.tsv uas-holdout-eval.tsv
-	rm -rf UDer-1.1-hr-DerivBaseHR.tsv
+	rm -rf original-data/ 1.0/relations.tsv 1.0/singletons.tsv 1.0/prep-to-predict.tsv 1.0/to-predict.tsv 1.0/predicted.tsv 1.0/01-harm-annotated/all-annotations.tsv 1.0/harmonized.pickle UDer-1.0-hr-DerivBaseHR-v2.tsv UDer-1.0-hr-DerivBaseHR.tsv
+	rm -rf original-data/ 1.1/prep-to-predict.tsv 1.1/to-predict.tsv 1.1/predicted.tsv 1.1/02-harm-annotated/all-annotations.tsv 1.1/harmonized.pickle UDer-1.1-hr-DerivBaseHR-v2.tsv UDer-1.1-hr-DerivBaseHR.tsv
