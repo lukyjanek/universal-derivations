@@ -60,8 +60,25 @@ UDer-1.0-ru-DerivBaseRU.tsv: ../../derinet2/ ../../py3env/ get-data-v10
 	../../py3env/bin/python3 1.0/edit-json-column.py UDer-1.0-ru-DerivBaseRU.tsv > UDer-1.0-ru-DerivBaseRU-v2.tsv
 	mv UDer-1.0-ru-DerivBaseRU-v2.tsv UDer-1.0-ru-DerivBaseRU.tsv
 
-UDer-1.1-ru-DerivBaseRU.tsv: UDer-1.0-ru-DerivBaseRU.tsv
-	cp UDer-1.0-ru-DerivBaseRU.tsv UDer-1.1-ru-DerivBaseRU.tsv
+UDer-1.1-ru-DerivBaseRU.tsv: ../../derinet2/ ../../py3env/ get-data-v10
+	# 1. get-data-v10
+	../../py3env/bin/python3 1.0/extract_rules.py 1.0/relations.tsv UDer-1.1-ru-DerivBaseRU-rules.txt
+	# 2. process annotations
+	../../py3env/bin/python3 ../../@shared-scripts/annot_data.py -i 1.0/01-harm-annotated/first-annotation-data.json -o 1.0/01-harm-annotated/all-annotations.tsv -j2c
+	../../py3env/bin/python3 ../../@shared-scripts/annot_data.py -i 1.0/02-harm-annotated/second-annotation-data.json -o 1.0/02-harm-annotated/all-annotations.tsv -j2c
+	../../py3env/bin/python3 ../../@shared-scripts/annot_data.py -i 1.0/relations.tsv -o 1.1/prep-to-predict.tsv -c
+	cat 1.1/prep-to-predict.tsv | grep ^. | cut -f 2,3 > 1.1/to-predict.tsv
+	# 3. machine learning
+	../../py3env/bin/python3 -B 1.0/predict_scores.py -rel 1.0/relations.tsv -a <(cat 1.0/01-harm-annotated/all-annotations.tsv 1.0/02-harm-annotated/all-annotations.tsv) -p 1.1/to-predict.tsv -m LOGR2 -w 1.1/predicted.tsv
+	# 4. harmonise
+	../../py3env/bin/python3 1.1/spanning_trees.py -s 1.0/singletons.tsv -r 1.0/relations.tsv -w 1.1/predicted.tsv -v 0.0 -o 1.1/harmonized.pickle
+	mkdir -p ../../derinet2/derinet/modules/uder
+	cp 1.1/harmonizederivbaseru.py ../../derinet2/derinet/modules/uder/
+	../../py3env/bin/python3 ../../derinet2/process_scenario.py \
+		uder.HarmonizeDerivBaseRu 1.1/harmonized.pickle \
+		Save UDer-1.1-ru-DerivBaseRU.tsv
+	../../py3env/bin/python3 1.0/edit-json-column.py UDer-1.1-ru-DerivBaseRU.tsv > UDer-1.1-ru-DerivBaseRU-v2.tsv
+	mv UDer-1.1-ru-DerivBaseRU-v2.tsv UDer-1.1-ru-DerivBaseRU.tsv
 
 
 01-harm-annotation: ../../py3env/ get-data-v10
@@ -87,5 +104,5 @@ UDer-1.1-ru-DerivBaseRU.tsv: UDer-1.0-ru-DerivBaseRU.tsv
 
 
 clean:
-	rm -rf original-data/ russian-corpora/ 1.0/relations.tsv 1.0/singletons.tsv 1.0/prep-to-predict.tsv 1.0/to-predict* 1.0/predicted.tsv 1.0/01-harm-annotated/all-annotations.tsv 1.0/02-harm-annotated/all-annotations.tsv 1.0/harmonized.pickle UDer-1.0-ru-DerivBaseRU.tsv UDer-1.0-ru-DerivBaseRU-rules.txt
-	rm -rf UDer-1.1-ru-DerivBaseRU.tsv
+	rm -rf original-data/ russian-corpora/ 1.0/relations.tsv 1.0/singletons.tsv 1.0/prep-to-predict.tsv 1.0/to-predict* 1.0/predicted.tsv 1.0/01-harm-annotated/all-annotations.tsv 1.0/02-harm-annotated/all-annotations.tsv 1.0/harmonized.pickle UDer-1.0-ru-DerivBaseRU-v2.tsv UDer-1.0-ru-DerivBaseRU.tsv UDer-1.0-ru-DerivBaseRU-rules.txt
+	rm -rf 1.1/prep-to-predict.tsv 1.1/to-predict* 1.1/predicted.tsv 1.1/harmonized.pickle UDer-1.1-ru-DerivBaseRU.tsv UDer-1.1-ru-DerivBaseRU-v2.tsv UDer-1.1-ru-DerivBaseRU-rules.txt
