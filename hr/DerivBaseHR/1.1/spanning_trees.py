@@ -85,7 +85,7 @@ for family in nx.weakly_connected_components(G):
     B = F.copy()
 
     # find maximum spanning tree
-    if len(F.nodes()) > 2000:  # identify in subsequently growing tree
+    if len(F.nodes()) > 400:  # identify in subsequently growing tree
         E = nx.DiGraph()
         for chunk_of_nodes in [list(F.nodes())[i:i+50]
                                for i in range(0, len(list(F.nodes())), 50)]:
