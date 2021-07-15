@@ -54,5 +54,5 @@ UDer-1.1-en-CatVar.tsv: UDer-1.0-en-CatVar.tsv
 
 
 clean:
-	rm -rf 1.0/relations.tsv 1.0/singletons.tsv 1.0/prep-to-predict.tsv 1.0/to-predict.tsv 1.0/predicted.tsv 1.0/01-harm-annotated/all-annotations.tsv 1.0/harmonized.pickle UDer-1.0-en-CatVar.tsv
+	rm -rf 1.0/relations.tsv 1.0/singletons.tsv 1.0/prep-to-predict.tsv 1.0/to-predict.tsv 1.0/predicted.tsv 1.0/01-harm-annotated/all-annotations.tsv 1.0/harmonized.pickle UDer-1.0-en-CatVar-v2.tsv UDer-1.0-en-CatVar.tsv
 	rm -rf UDer-1.1-en-CatVar.tsv

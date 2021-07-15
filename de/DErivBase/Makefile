@@ -70,7 +70,7 @@ UDer-1.1-de-DErivBase.tsv: ../../derinet2/ ../../py3env/ get-data-v05
 	# 1. get-data-v05
 	mv 0.5/singletons.tsv 1.1/singletons.tsv
 	mv 0.5/relations.tsv 1.1/relations.tsv
-	cp original-data/derivbase/DErivBase-v1.4.1-rules.txt UDer-1.0-de-DErivBase-rules.txt
+	cp original-data/derivbase/DErivBase-v1.4.1-rules.txt UDer-1.1-de-DErivBase-rules.txt
 	# 2. process annotations
 	../../py3env/bin/python3 ../../@shared-scripts/annot_data.py -i 1.1/relations.tsv -o 1.1/prep-to-predict.tsv -c
 	cat 1.1/prep-to-predict.tsv | grep ^. | cut -f 2,3 > 1.1/to-predict.tsv
