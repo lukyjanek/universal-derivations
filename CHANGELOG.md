@@ -10,7 +10,7 @@
     * remove individual changelogs sections from individual README.md files in appropriate resources
     * automatise the creation all README.md, especially the part summarising statistics of individual resources
 
-* individual resources ... TODO ...
+* individual resources
     * ca-EtymWordNetCA
         * Without changes.
     * cs-DeriNet
@@ -19,11 +19,19 @@
         * Without changes.
     * de-DErivBase
         * Re-annotate lexical negation and re-harmonise the data.
+        * The procedure of finding spanning tree in large families was improved.
     * de-GCelex
+        * The procedure of finding spanning tree in large families was improved.
+        * Orthographical standard was modernised using scripts created by Petra Steiner.
+        * Lemid for compounds was corrected.
     * du-DCelex -> nl-DCelex
+        * The procedure of finding spanning tree in large families was improved.
+        * Lemid for compounds was corrected.
     * en-CatVar
         * Without changes.
     * en-ECelex
+        * The procedure of finding spanning tree in large families was improved.
+        * Lemid for compounds was corrected.
     * en-WordNet
         * Without changes.
     * es-DeriNetES
