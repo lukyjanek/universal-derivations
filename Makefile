@@ -53,6 +53,7 @@ UDer-collection:
 	$(MAKE) UDer-resource version=$(version) language=et resource=EstWordNet
 	$(MAKE) UDer-resource version=$(version) language=es resource=DeriNetES
 	$(MAKE) UDer-resource version=$(version) language=fa resource=DeriNetFA
+	$(MAKE) UDer-resource version=$(version) language=ru resource=DeriNetRU
 	$(MAKE) UDer-resource version=$(version) language=pl resource=PolishWFN
 	$(MAKE) UDer-resource version=$(version) language=pt resource=NomLexPT
 	$(MAKE) UDer-resource version=$(version) language=la resource=WFL
