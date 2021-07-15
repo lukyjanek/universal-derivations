@@ -60,5 +60,5 @@ Harmonized version: 1.0
 Data source: http://wordnetcode.princeton.edu/standoff-files/morphosemantic-links.xls
 Data available since: UDer v0.5
 Harmonization: manual
-Common features: Semantic labels
+Common features: Semantic labels, Morphological categories
 JSON features: was_in_family_with; other_parents

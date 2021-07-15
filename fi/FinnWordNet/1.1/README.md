@@ -68,5 +68,5 @@ Harmonized version: 2.0
 Data source: https://github.com/frankier/fiwn/raw/master/data/rels/fiwn-lexrels.tsv
 Data available since: UDer v0.5
 Harmonization: automatic
-Common features: none
+Common features: Morphological categories
 JSON features: was_in_family_with; other_parents

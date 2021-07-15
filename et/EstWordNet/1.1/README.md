@@ -65,5 +65,5 @@ Harmonized version: 2.1
 Data source: https://gitlab.keeleressursid.ee/avalik/data/raw/master/estwn/estwn-et-2.1.0.wip.xml
 Data available since: UDer v0.5
 Harmonization: manual
-Common features: none
+Common features: Morphological categories
 JSON features: was_in_family_with; other_parents

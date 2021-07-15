@@ -57,5 +57,5 @@ Harmonized version: 1.0
 Data source: https://github.com/s231644/DerivBaseRu/tree/master/data/wiktionary
 Data available since: UDer v1.0
 Harmonization: automatic
-Common features: none; Derivational rules
+Common features: Morphological categories; Derivational rules
 JSON features: was_in_family_with; other_parents

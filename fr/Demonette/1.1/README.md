@@ -59,4 +59,4 @@ Data source: http://redac.univ-tlse2.fr/lexiques/demonette/demonette-1.2.zip
 Data available since: UDer v0.5
 Harmonization: manual
 Common features: Semantic labels; Morphological categories
-JSON features: was_in_family_with; other_parents; suffix; in_subparadigm_with
+JSON features: was_in_family_with; other_parents; suffix

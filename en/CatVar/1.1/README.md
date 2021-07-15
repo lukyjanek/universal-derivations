@@ -56,5 +56,5 @@ Harmonized version: 2.1
 Data source: https://raw.githubusercontent.com/nizarhabash1/catvar/master/catvar21.signed
 Data available since: UDer v1.0
 Harmonization: automatic
-Common features: none
+Common features: Morphological categories
 JSON features: was_in_family_with; other_parents

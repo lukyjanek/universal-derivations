@@ -4,17 +4,18 @@
 ## UDer v1.1 (2021-09)
 
 * whole collection
-    * newly added resources: ru-DeriNetRU, ... TODO ...
+    * newly added resources: ru-DeriNetRU
     * du-DCelex changed to nl-DCelex
     * add RAEDME.md and CHANGELOG.md for the whole collection
     * remove individual changelogs sections from individual README.md files in appropriate resources
     * automatise the creation all README.md, especially the part summarising statistics of individual resources
+    * update README.md files of individual resources
 
 * individual resources
     * ca-EtymWordNetCA
         * Without changes.
     * cs-DeriNet
-        * Update version of the original harmonised resource; newly harmonised version is DeriNet 2.1 (2021-??-??).
+        * Update version of the original harmonised resource; newly harmonised version is DeriNet 2.0.5.
     * cs-EtymWordNetCS
         * Without changes.
     * de-DErivBase
@@ -69,6 +70,7 @@
         * No harmonization of the data structure needed.
     * ru-DerivBaseRU
         * The procedure of finding spanning tree in large families was improved.
+        * Correct IDs in keys 'other_parents' in misc column.
     * ru-EtymWordNetRU
         * Without changes.
     * sh-EtymWordNetSH

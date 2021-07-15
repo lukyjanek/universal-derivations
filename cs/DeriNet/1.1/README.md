@@ -54,9 +54,9 @@ Contact: http://ufal.mff.cuni.cz/derinet
 <pre>
 === Machine-readable metadata =================================================
 Harmonized resource: DeriNet
-Harmonized version: 2.0
-Data source: https://github.com/vidraj/derinet/raw/master/data/releases/cs/derinet-2-0.tsv.gz
+Harmonized version: 2.0.5
+Data source: https://github.com/vidraj/derinet/raw/master/data/releases/cs/derinet-2-0-5.tsv.gz
 Data available since: UDer v0.5
 Harmonization: default
-Common features: Segmentations; Semantic labels; Morphological categories
-JSON features: techlemma; is_compound; segmentation
+Common features: Segmentations; Semantic labels; Morphological categories; Compounding; Conversion; Variant
+JSON features: techlemma; is_compound; segmentation; corpus_stats

@@ -57,5 +57,5 @@ Harmonized version: 0.5
 Data source: internal
 Data available since: UDer v1.1
 Harmonization: default
-Common features: none
+Common features: Morphological categories
 JSON features: none

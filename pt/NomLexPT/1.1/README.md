@@ -56,5 +56,5 @@ Harmonized version: 2014
 Data source: https://github.com/own-pt/nomlex-pt/raw/master/nomlex-pt.rdf.gz
 Data available since: UDer v0.5
 Harmonization: manual
-Common features: none
+Common features: Morphological categories
 JSON features: was_in_family_with; other_parents

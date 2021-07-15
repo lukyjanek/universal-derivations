@@ -58,5 +58,5 @@ Harmonized version: 1.0
 Data source: http://takelab.fer.hr/data/DerivBase.hr.v1.tar.gz
 Data available since: UDer v1.0
 Harmonization: automatic
-Common features: none
+Common features: Morphological categories
 JSON features: was_in_family_with; other_parents

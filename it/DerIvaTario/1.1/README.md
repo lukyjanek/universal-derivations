@@ -59,5 +59,5 @@ Harmonized version: 1.0
 Data source: http://derivatario.sns.it/derivatario.csv
 Data available since: UDer v1.0
 Harmonization: automatic
-Common features: none
+Common features: Morphological categories
 JSON features: was_in_family_with; other_parents; original_id; segmentation
