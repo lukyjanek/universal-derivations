@@ -86,7 +86,7 @@ class HarmonizeDerivBaseRu(Block):
                         parents.append(p)
 
                 if parents:
-                    chi_node.misc['other_parents'] = ','.join(parents)
+                    chi_node.misc['other_parents'] = '|'.join(parents)
 
             if entry['ref_roots']:
                 roots = list()
