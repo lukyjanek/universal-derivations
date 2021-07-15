@@ -13,6 +13,12 @@ get-data-v05: ../../py3env/
 	wget -O ../../@input-data/derinet-2-0.tsv.gz https://github.com/vidraj/derinet/raw/master/data/releases/cs/derinet-2-0.tsv.gz
 	gunzip -c ../../@input-data/derinet-2-0.tsv.gz > original-data/derinet-2-0.tsv
 
+get-data-v11: ../../py3env/
+	mkdir original-data/
+	# 1. download data
+	wget -O ../../@input-data/derinet-2-0-5.tsv.gz https://github.com/vidraj/derinet/raw/master/data/releases/cs/derinet-2-0-5.tsv.gz
+	gunzip -c ../../@input-data/derinet-2-0-5.tsv.gz > original-data/derinet-2-0-5.tsv
+
 
 UDer-0.5-cs-DeriNet.tsv: ../../derinet2/ ../../py3env/ get-data-v05
 	# 1. get-data-v05
@@ -22,8 +28,9 @@ UDer-0.5-cs-DeriNet.tsv: ../../derinet2/ ../../py3env/ get-data-v05
 UDer-1.0-cs-DeriNet.tsv: UDer-0.5-cs-DeriNet.tsv
 	cp UDer-0.5-cs-DeriNet.tsv UDer-1.0-cs-DeriNet.tsv
 
-UDer-1.1-cs-DeriNet.tsv: UDer-1.0-cs-DeriNet.tsv
-	cp UDer-1.0-cs-DeriNet.tsv UDer-1.1-cs-DeriNet.tsv
+UDer-1.1-cs-DeriNet.tsv: ../../derinet2/ ../../py3env/ get-data-v11
+	# 1. get-data-v05
+	cp original-data/derinet-2-0-5.tsv UDer-1.1-cs-DeriNet.tsv
 
 
 clean:
