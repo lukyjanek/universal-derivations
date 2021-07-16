@@ -1,4 +1,3 @@
-.PHONY: clean get-data-v10 UDer-1.0-ru-DerivBaseRU.tsv 01-harm-annotation 02-harm-annotation
 SHELL=/bin/bash
 
 ../../py3env/:
@@ -70,7 +69,7 @@ UDer-1.1-ru-DerivBaseRU.tsv: ../../derinet2/ ../../py3env/ get-data-v10
 	cat 1.1/prep-to-predict.tsv | grep ^. | cut -f 2,3 > 1.1/to-predict.tsv
 	# 3. machine learning
 	../../py3env/bin/python3 -B 1.0/predict_scores.py -rel 1.0/relations.tsv -a <(cat 1.0/01-harm-annotated/all-annotations.tsv 1.0/02-harm-annotated/all-annotations.tsv) -p 1.1/to-predict.tsv -m LOGR2 -w 1.1/predicted.tsv
-	4. harmonise
+	# 4. harmonise
 	../../py3env/bin/python3 1.1/spanning_trees.py -s 1.0/singletons.tsv -r 1.0/relations.tsv -w 1.1/predicted.tsv -v 0.0 -o 1.1/harmonized.pickle
 	mkdir -p ../../derinet2/derinet/modules/uder
 	cp 1.1/harmonizederivbaseru.py ../../derinet2/derinet/modules/uder/

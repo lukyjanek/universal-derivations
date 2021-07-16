@@ -1,4 +1,3 @@
-.PHONY: clean get-data-v05 UDer-1.1-ru-DeriNetRU.tsv
 SHELL=/bin/bash
 
 ../../py3env/:

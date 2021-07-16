@@ -1,4 +1,3 @@
-.PHONY: clean get-data-v10 UDer-1.0-gd-EtymWordNetNL.tsv 01-harm-annotation
 SHELL=/bin/bash
 
 ../../py3env/:

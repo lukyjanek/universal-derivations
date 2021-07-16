@@ -1,4 +1,3 @@
-.PHONY: clean get-data-v05 UDer-0.5-de-DErivBase.tsv 01-harm-annotation
 SHELL=/bin/bash
 
 ../../py3env/:

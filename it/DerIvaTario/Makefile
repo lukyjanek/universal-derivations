@@ -1,4 +1,3 @@
-.PHONY: clean  get-data-v10 UDer-1.0-it-DerIvaTario.tsv 01-harm-annotation UDer-1.1-it-DerIvaTario.tsv
 SHELL=/bin/bash
 
 ../../py3env/:

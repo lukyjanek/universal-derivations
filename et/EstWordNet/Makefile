@@ -1,4 +1,3 @@
-.PHONY: clean get-data-v05 UDer-0.5-et-EstWordNet.tsv 01-harm-annotation
 SHELL=/bin/bash
 
 ../../py3env/:

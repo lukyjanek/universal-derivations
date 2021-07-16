@@ -1,4 +1,3 @@
-.PHONY: clean get-data-v05 UDer-0.5-pl-PolishWFN.tsv
 SHELL=/bin/bash
 
 ../../py3env/:

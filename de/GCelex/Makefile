@@ -1,4 +1,3 @@
-.PHONY: clean  get-data-v10 UDer-1.0-de-GCelex.tsv 01-harm-annotation
 SHELL=/bin/bash
 
 ../../py3env/:
@@ -85,4 +84,4 @@ UDer-1.1-de-GCelex.tsv: ../../derinet2/ ../../py3env/ get-data-v10 morphology/GM
 
 clean:
 	rm -rf original-data/ 1.0/relations.tsv 1.0/singletons.tsv 1.0/compounds.tsv 1.0/prep-to-predict.tsv 1.0/to-predict.tsv 1.0/predicted.tsv 1.0/01-harm-annotated/all-annotations.tsv 1.0/harmonized.pickle UDer-1.0-de-GCelex.tsv
-	rm -rf 1.1/prep-to-predict.tsv 1.1/to-predict.tsv 1.1/predicted.tsv 1.1/harmonized.pickle UDer-1.1-de-GCelex.tsv morphology/gml.cd morphology/gsl.cd morphology/gol.cd morphology/GML* morphology/GMO* morphology/Doubleconsonants morphology/GOL* morphology/Checkfile
+	rm -rf morphology/ 1.1/prep-to-predict.tsv 1.1/to-predict.tsv 1.1/predicted.tsv 1.1/harmonized.pickle UDer-1.1-de-GCelex.tsv morphology/gml.cd morphology/gsl.cd morphology/gol.cd morphology/GML* morphology/GMO* morphology/Doubleconsonants morphology/GOL* morphology/Checkfile

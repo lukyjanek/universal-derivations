@@ -1,4 +1,4 @@
-.PHONY: clean
+SHELL=/bin/bash
 
 ../../py3env/:
 	cd ../../ && $(MAKE) py3env/

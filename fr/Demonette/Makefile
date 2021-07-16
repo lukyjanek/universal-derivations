@@ -1,4 +1,3 @@
-.PHONY: clean get-data-v05 UDer-0.5-fr-Demonette.tsv 01-harm-annotation UDer-1.0-fr-Demonette.tsv UDer-1.1-fr-Demonette.tsv
 SHELL=/bin/bash
 
 ../../py3env/:
