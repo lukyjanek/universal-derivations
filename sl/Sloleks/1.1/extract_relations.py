@@ -23,13 +23,13 @@ for _, element in parser:
         for entry in element.iter():
             if entry.tag == 'Lemma':
                 parent = entry[0].attrib['val']
-                p_pos = pos_dict[element[0].attrib['val']]
-                parent += '_' + p_pos
+                p_pos = pos_dict[element[1].attrib['val']]
+                parent = '_'.join([parent, p_pos])
 
             if entry.tag == 'RelatedForm':
                 child = entry[2].attrib['val']
                 c_pos = pos_dict[entry[1].attrib['val']]
-                child += '_' + c_pos
+                child = '_'.join([child, c_pos])
 
                 if parent != child and (parent, child) not in rels:
                     print(parent, child, sep='\t')

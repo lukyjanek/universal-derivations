@@ -1,4 +1,4 @@
-.PHONY: UDer-collection UDer-resource UDer-statistics
+.PHONY: all UDer-collection UDer-resource UDer-statistics py3env/ derinet2/
 SHELL=/bin/bash
 
 version:=1.0
@@ -71,13 +71,13 @@ UDer-collection:
 	$(MAKE) UDer-resource version=$(version) language=tr resource=EtymWordNetTR
 	$(MAKE) UDer-resource version=$(version) language=ru resource=DerivBaseRU
 	$(MAKE) UDer-resource version=$(version) language=en resource=CatVar
+	$(MAKE) UDer-resource version=$(version) language=sl resource=Sloleks
 	$(MAKE) UDer-resource version=$(version) language=en resource=ECelex
 	$(MAKE) UDer-resource version=$(version) language=nl resource=DCelex
 	$(MAKE) UDer-resource version=$(version) language=de resource=GCelex
 	$(MAKE) UDer-resource version=$(version) language=it resource=DerIvaTario
 	$(MAKE) UDer-resource version=$(version) language=hr resource=DerivBaseHR
 	# pre-prepared: (need to annotate and harmonize)
-	# $(MAKE) UDer-resource version=$(version) language=sl resource=Sloleks
 	# $(MAKE) UDer-resource version=$(version) language=it resource=EtymWordNetIT
 	# $(MAKE) UDer-resource version=$(version) language=la resource=EtymWordNetLA
 	# $(MAKE) UDer-resource version=$(version) language=en resource=EtymWordNetEN
