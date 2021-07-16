@@ -4,7 +4,7 @@
 ## UDer v1.1 (2021-09)
 
 * whole collection
-    * newly added resources: ru-DeriNetRU
+    * newly added resources: ru-DeriNetRU, sl-Sloleks
     * du-DCelex changed to nl-DCelex
     * add RAEDME.md and CHANGELOG.md for the whole collection
     * remove individual changelogs sections from individual README.md files in appropriate resources
@@ -75,6 +75,9 @@
         * Without changes.
     * sh-EtymWordNetSH
         * Without changes.
+    * sl-Sloleks
+        * Including Sloleks v2.0 to the UDer collection.
+        * Automatic harmonization using Machine Learning.
     * sv-EtymWordNetSV
         * Without changes.
     * tr-EtymWordNetTR
