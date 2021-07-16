@@ -19,7 +19,7 @@ We wish to thank all of the developers and annotators of the DeriNet.FA, includi
 
 As a citation for the resource in articles, please use this:
 
-* Hamid Haghdoost, Ebrahim Ansari, Zdeněk Žabokrtský, and Mahshid Nikravesh. 2019. Building a MorphologicalNetwork for Persian on Top of a Morpheme-Segmented Lexicon. InProceedings of the 2nd Workshop onResources and Tools for Derivational Morphology. Prague: Charles University. ISBN: 978-80-88132-08-0. https://ufal.mff.cuni.cz/derimo2019/pdf-files/derimo2019.pdf.
+* Hamid Haghdoost, Ebrahim Ansari, Zdeněk Žabokrtský, and Mahshid Nikravesh. 2019. Building a MorphologicalNetwork for Persian on Top of a Morpheme-Segmented Lexicon. In: Proceedings of the 2nd Workshop onResources and Tools for Derivational Morphology. Prague: Charles University. ISBN: 978-80-88132-08-0. https://ufal.mff.cuni.cz/derimo2019/pdf-files/derimo2019.pdf.
 
 ```
 @INPROCEEDINGS{DeriNet.FA,
