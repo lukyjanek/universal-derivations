@@ -14,23 +14,23 @@ The data structure (the rooted tree) and format of DeriNet (2.0 and above) have 
 
 # Acknowledgments
 
-We wish to thank all the developers and annotators of the DeriNet, including Jonáš Vidra, Zdeněk Žabokrtský, Magda Ševčíková, Adéla Kalužová, Lukáš Kyjánek, Šárka Dohnalová, Vojtěch Hudeček, Milan Straka, and Nikita Mediankin.
+We wish to thank all the developers and annotators of the DeriNet, including Jonáš Vidra, Zdeněk Žabokrtský, Magda Ševčíková, Adéla Kalužová, Lukáš Kyjánek, Šárka Dohnalová, Emil Svoboda, Jan Bodnár, Vojtěch Hudeček, Milan Straka, and Nikita Mediankin.
 
 
 ## References
 
 As a citation for the resource in articles, please use this:
 
-* Vidra, Jonáš; Žabokrtský, Zdeněk; Kyjánek, Lukáš; Ševčíková, Magda; Dohnalová, Šárka. 2019. DeriNet 2.0. LINDAT/CLARIN digital library at the Institute of Formal and Applied Linguistics (ÚFAL) Faculty of Mathematics and Physics, Charles University. http://hdl.handle.net/11234/1-2995.
+* Vidra, Jonáš; Žabokrtský, Zdeněk; Kyjánek, Lukáš; Ševčíková, Magda; Dohnalová, Šárka; Svoboda, Emil; Bodnár, Jan. 2021. DeriNet 2.1. LINDAT/CLARIAH-CZ digital library at the Institute of Formal and Applied Linguistics (ÚFAL), Faculty of Mathematics and Physics, Charles University. http://hdl.handle.net/11234/1-3765.
 
 ```
 @MISC{DeriNet,
-    title       = {{DeriNet 2.0}},
-    author      = {Vidra, Jon{\'a}{\v s} and {\v Z}abokrtsk{\'y}, Zden{\v e}k and Kyj{\'a}nek, Luk{\'a}{\v s} and {\v S}ev{\v c}{\'{\i}}kov{\'a}, Magda and Dohnalov{\'a}, {\v S}{\'a}rka},
-    url         = {http://hdl.handle.net/11234/1-2995},
-    note        = {{LINDAT}/{CLARIN} digital library at the Institute of Formal and Applied Linguistics ({{\'U}FAL}), Faculty of Mathematics and Physics, Charles University},
+    title       = {{DeriNet  2.1}},
+    author      = {Vidra, Jon{\'a}{\v s} and {\v Z}abokrtsk{\'y}, Zden{\v e}k and Kyj{\'a}nek, Luk{\'a}{\v s} and {\v S}ev{\v c}{\'{\i}}kov{\'a}, Magda and Dohnalov{\'a}, {\v S}{\'a}rka and Svoboda, Emil and Bodn{\'a}r, Jan},
+    url         = {http://hdl.handle.net/11234/1-3765},
+    note        = {{LINDAT}/{CLARIAH}-{CZ} digital library at the Institute of Formal and Applied Linguistics ({{\'U}FAL}), Faculty of Mathematics and Physics, Charles University},
     copyright   = {Attribution-{NonCommercial}-{ShareAlike} 3.0 Unported ({CC} {BY}-{NC}-{SA} 3.0)},
-    year        = {2019}
+    year        = {2021}
 }
 ```
 
@@ -45,7 +45,7 @@ License text is available in the file `LICENSE.txt`.
 === Machine-readable metadata =================================================
 Resource: DeriNet
 Language: Czech
-Authors: Vidra, Jonáš; Žabokrtský, Zdeněk; Ševčíková, Magda; Kalužová, Adéla; Kyjánek, Lukáš; Dohnalová, Šárka; Hudeček, Vojtěch; Straka, Milan; Mediankin, Nikita
+Authors: Vidra, Jonáš; Žabokrtský, Zdeněk; Ševčíková, Magda; Kalužová, Adéla; Kyjánek, Lukáš; Dohnalová, Šárka; Svoboda, Emil; Bodnár, Jan; Hudeček, Vojtěch; Straka, Milan; Mediankin, Nikita
 License: CC BY-NC-SA 3.0
 Contact: http://ufal.mff.cuni.cz/derinet
 ===============================================================================
@@ -54,8 +54,8 @@ Contact: http://ufal.mff.cuni.cz/derinet
 <pre>
 === Machine-readable metadata =================================================
 Harmonized resource: DeriNet
-Harmonized version: 2.0.5
-Data source: https://github.com/vidraj/derinet/raw/master/data/releases/cs/derinet-2-0-5.tsv.gz
+Harmonized version: 2.1
+Data source: https://github.com/vidraj/derinet/raw/master/data/releases/cs/derinet-2-1.tsv.gz
 Data available since: UDer v0.5
 Harmonization: default
 Common features: Segmentations; Semantic labels; Morphological categories; Compounding; Conversion; Variant
