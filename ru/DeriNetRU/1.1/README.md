@@ -19,17 +19,16 @@ We wish to thank all of the developers and annotators of the DeriNet.RU, includi
 
 As a citation for the resource in articles, please use this:
 
-* 
+* Kyjánek, Lukáš; Lyashevskaya, Olga; Nedoluzhko, Anna; Vodolazsky, Daniil; Žabokrtský, Zdeněk. 2021. DeriNet.RU 0.5. Released in the Universal Derivations collection v1.1 (CC BY-NC-SA 4.0). http://hdl.handle.net/11234/1-3247.
 
 ```
-@INPROCEEDINGS{DeriNet.RU,
-    title       = {{ }},
-    author      = {Kyj{\'a}nek, Luk{\'a}{\v s} and Lyashevskaya, Olga and Nedoluzhko, Anna and Vodolazsky, Daniil and {\v S}ev{\v c}{\'{\i}}kov{\'a}, Magda and {\v Z}abokrtsk{\'y}, Zden{\v e}k},
-    booktitle   = {{ }},
-    publisher   = { },
+@MISC{DeriNet.RU,
+    title       = {{DeriNet.RU 0.5}},
+    author      = {Kyj{\'a}nek, Luk{\'a}{\v s} and Lyashevskaya, Olga and Nedoluzhko, Anna and Vodolazsky, Daniil and {\v Z}abokrtsk{\'y}, Zden{\v e}k},
+    note   = {Released in the Universal Derivations collection v1.1.},
+    copyright   = {Attribution-{NonCommercial}-{ShareAlike} 4.0 ({CC} {BY}-{NC}-{SA} 4.0)},
     year        = {2021},
-    isbn        = { },
-    url         = { }
+    url         = {http://hdl.handle.net/11234/1-3247}
 }
 ```
 
