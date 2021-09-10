@@ -33,7 +33,7 @@ If you use the collection in your research or need to cite it for any reason, pl
  url        = {http://hdl.handle.net/11234/1-3247},
  note       = {{LINDAT}/{CLARIAH}-{CZ} digital library at the Institute of Formal and Applied Linguistics ({{\'U}FAL}), Faculty of Mathematics and Physics, Charles University},
  copyright  = {Universal Derivations v1.0 License Agreement},
- year       = {2020}
+ year       = {2021}
 }
 ```
 References to individual data resources included in this collection are contained in README.md file in each individual resource. If you use the individual resources, plese cite them too.
