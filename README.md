@@ -28,9 +28,9 @@ The original authors of individual data resources harmonised in this collection 
 If you use the collection in your research or need to cite it for any reason, please cite:
 ```
 @MISC{UDer-data,
- title      = {Universal Derivations v1.0},
+ title      = {Universal Derivations v1.1},
  author     = {Kyj{\'a}nek, Luk{\'a}{\v s} and {\v Z}abokrtsk{\'y}, Zden{\v e}k and Vidra, Jon{\'a}{\v s} and {\v S}ev{\v c}{\'{\i}}kov{\'a}, Magda},
- url        = {http://hdl.handle.net/11234/1-3236},
+ url        = {http://hdl.handle.net/11234/1-3247},
  note       = {{LINDAT}/{CLARIAH}-{CZ} digital library at the Institute of Formal and Applied Linguistics ({{\'U}FAL}), Faculty of Mathematics and Physics, Charles University},
  copyright  = {Universal Derivations v1.0 License Agreement},
  year       = {2020}
@@ -43,6 +43,7 @@ References to individual data resources included in this collection are containe
 We would like to thank all researchers who made their derivational resources publicly available under open licenses.
 This work was supported by:
 - the Grant No. GA19-14534S of the Czech Science Foundation,
+- the Grant No. START/HUM/010 of Grant schemes at Charles University (reg. No. CZ.02.2.69/0.0/0.0/19_073/0016935),
 - the Grant No. 1176219 of the Charles University Grant Agency,
 - the Grant No. SVV260575 of the Charles University,
 - the LINDAT/CLARIAH CZ project (No. LM2015071, No. LM2018101) of the Ministry of Education, Youth and Sports of the Czech Republic.

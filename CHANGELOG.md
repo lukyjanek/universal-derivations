@@ -4,7 +4,7 @@
 ## UDer v1.1 (2021-09)
 
 * whole collection
-    * newly added resources: ru-DeriNetRU, sl-Sloleks
+    * newly added resources: ru-DeriNetRU, sl-Sloleks, hr-CroDeriV
     * du-DCelex changed to nl-DCelex
     * add RAEDME.md and CHANGELOG.md for the whole collection
     * remove individual changelogs sections from individual README.md files in appropriate resources
@@ -49,6 +49,9 @@
         * Remove feature 'in_subparadigm_with' from the data.
     * gd-EtymWordNetGD
         * Without changes.
+    * hr-CroDeriV
+        * Include already harmonised data of CroDeriV to UDer collection.
+        * No harmonization of the data structure needed.
     * hr-DerivBaseHR
         * The procedure of finding spanning tree in large families was improved.
     * it-DerIvaTario
