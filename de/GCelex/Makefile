@@ -1,10 +1,10 @@
 SHELL=/bin/bash
 
 ../../py3env/:
-	cd ../../ && $(MAKE) py3env/
+	cd ../../ && $(MAKE) py3env
 
 ../../derinet2/:
-	cd ../../ && $(MAKE) derinet2/
+	cd ../../ && $(MAKE) derinet2
 
 ../../@input-data/celex2.zip:
 	@echo "$$(tput setaf 1)You need celex2.zip. It is not free. More info here:\n\thttps://catalog.ldc.upenn.edu/LDC96L14"

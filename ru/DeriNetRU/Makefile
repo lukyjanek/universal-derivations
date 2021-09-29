@@ -1,10 +1,10 @@
 SHELL=/bin/bash
 
 ../../py3env/:
-	cd ../../ && $(MAKE) py3env/
+	cd ../../ && $(MAKE) py3env
 
 ../../derinet2/:
-	cd ../../ && $(MAKE) derinet2/
+	cd ../../ && $(MAKE) derinet2
 
 ../../@input-data/DeriNetRU-0.5.tsv.gz:
 	@echo "$$(tput setaf 1)You need DeriNetRU-0.5.tsv.gz. Contact the authors."

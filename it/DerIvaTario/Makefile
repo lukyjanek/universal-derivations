@@ -1,10 +1,10 @@
 SHELL=/bin/bash
 
 ../../py3env/:
-	cd ../../ && $(MAKE) py3env/
+	cd ../../ && $(MAKE) py3env
 
 ../../derinet2/:
-	cd ../../ && $(MAKE) derinet2/
+	cd ../../ && $(MAKE) derinet2
 
 ../../@input-data/derivatario.csv:  # FIX: incorrect URL
 	wget -O ../../@input-data/derivatario.csv http://derivatario.sns.it/derivatario.csv

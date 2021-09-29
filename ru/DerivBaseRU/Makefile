@@ -1,10 +1,10 @@
 SHELL=/bin/bash
 
 ../../py3env/:
-	cd ../../ && $(MAKE) py3env/
+	cd ../../ && $(MAKE) py3env
 
 ../../derinet2/:
-	cd ../../ && $(MAKE) derinet2/
+	cd ../../ && $(MAKE) derinet2
 
 
 get-data-v10: ../../py3env/

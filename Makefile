@@ -1,11 +1,11 @@
-.PHONY: all UDer-collection UDer-resource UDer-statistics py3env/ derinet2/
+.PHONY: all UDer-collection UDer-resource UDer-statistics py3env derinet2
 SHELL=/bin/bash
 
 version:=1.0
 all: UDer-collection
 
 # install virtual environment (base)
-py3env/:
+py3env:
 	virtualenv -p python3 py3env
 	source py3env/bin/activate; \
 	pip3 install networkx==2.4; \
@@ -18,14 +18,14 @@ py3env/:
 	pip3 install matplotlib==3.2.1; \
 
 # clone DeriNet API
-derinet2/:
+derinet2:
 	git clone https://github.com/vidraj/derinet.git
 	cp -r derinet/tools/data-api/derinet2 .
 	rm -rf derinet
 
 
 # Build individual UDer resource; arguments: version, language, resource
-UDer-resource: py3env/ derinet2/
+UDer-resource: py3env derinet2
 	# check existence of version
 	if grep -q ^UDer-$(version)-$(language)-$(resource).tsv: $(language)/$(resource)/Makefile ; then \
 		# prepare data ;\

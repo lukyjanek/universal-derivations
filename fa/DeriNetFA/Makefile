@@ -1,10 +1,10 @@
 SHELL=/bin/bash
 
 ../../py3env/:
-	cd ../../ && $(MAKE) py3env/
+	cd ../../ && $(MAKE) py3env
 
 ../../derinet2/:
-	cd ../../ && $(MAKE) derinet2/
+	cd ../../ && $(MAKE) derinet2
 
 ../../@input-data/DeriNetFA-UfalFormat.tsv:
 	@echo "$$(tput setaf 1)You need DeriNetFA-UfalFormat.tsv. Contact the authors."

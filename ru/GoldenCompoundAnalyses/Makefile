@@ -1,10 +1,10 @@
 SHELL=/bin/bash
 
 ../../py3env/:
-	cd ../../ && $(MAKE) py3env/
+	cd ../../ && $(MAKE) py3env
 
 ../../derinet2/:
-	cd ../../ && $(MAKE) derinet2/
+	cd ../../ && $(MAKE) derinet2
 
 ../../@input-data/ru-gold-compound-analysis-val.csv:
 	wget -O ../../@input-data/ru-gold-compound-analysis-test.csv https://raw.githubusercontent.com/s231644/rucompoundsplitter/main/data/gold_analyses/test.csv
