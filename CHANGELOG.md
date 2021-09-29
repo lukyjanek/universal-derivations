@@ -4,7 +4,7 @@
 ## UDer v1.1 (2021-09)
 
 * whole collection
-    * newly added resources: ru-DeriNetRU, ru-GoldCompoundAnalyses, sl-Sloleks, hr-CroDeriV
+    * newly added resources: ru-DeriNetRU, ru-GoldenCompoundAnalyses, sl-Sloleks, hr-CroDeriV
     * du-DCelex changed to nl-DCelex
     * add RAEDME.md and CHANGELOG.md for the whole collection
     * remove individual changelogs sections from individual README.md files in appropriate resources
@@ -15,7 +15,7 @@
     * ca-EtymWordNetCA
         * Without changes.
     * cs-DeriNet
-        * Update version of the original harmonised resource; newly harmonised version is DeriNet 2.0.5.
+        * Update version of the original harmonised resource; newly harmonised version is DeriNet 2.1.
     * cs-EtymWordNetCS
         * Without changes.
     * de-DErivBase
@@ -39,7 +39,7 @@
         * Update version of the original harmonised resource; newly harmonised version is DeriNet.ES 0.6 (2020-06-10).
         * No harmonization of the data structure needed.
     * et-EstWordNet
-        * Without changes.
+        * Update version of the original harmonised resource; newly harmonised version is EstWordNet 2.4.
     * fa-DeriNetFA
         * Without changes.
     * fi-FinnWordNet
@@ -74,8 +74,8 @@
     * ru-DerivBaseRU
         * The procedure of finding spanning tree in large families was improved.
         * Correct IDs in keys 'other_parents' in misc column.
-    * ru-GoldCompoundAnalyses
-        * Include data of exclusively compound relations GoldCompoundAnalyses 0.5 to UDer collection.
+    * ru-GoldenCompoundAnalyses
+        * Include data of exclusively compound relations GoldenCompoundAnalyses 1.1 to UDer collection.
         * The original data format harmonised.
     * ru-EtymWordNetRU
         * Without changes.

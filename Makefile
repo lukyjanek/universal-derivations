@@ -1,11 +1,11 @@
 .PHONY: all UDer-collection UDer-resource UDer-statistics py3env derinet2
 SHELL=/bin/bash
 
-version:=1.0
+version:=1.1
 all: UDer-collection
 
 # install virtual environment (base)
-py3env:
+py3env/:
 	virtualenv -p python3 py3env
 	source py3env/bin/activate; \
 	pip3 install networkx==2.4; \
@@ -18,14 +18,14 @@ py3env:
 	pip3 install matplotlib==3.2.1; \
 
 # clone DeriNet API
-derinet2:
+derinet2/:
 	git clone https://github.com/vidraj/derinet.git
 	cp -r derinet/tools/data-api/derinet2 .
 	rm -rf derinet
 
 
 # Build individual UDer resource; arguments: version, language, resource
-UDer-resource: py3env derinet2
+UDer-resource: py3env/ derinet2/
 	# check existence of version
 	if grep -q ^UDer-$(version)-$(language)-$(resource).tsv: $(language)/$(resource)/Makefile ; then \
 		# prepare data ;\
@@ -52,10 +52,10 @@ UDer-collection:
 	$(MAKE) UDer-resource version=$(version) language=en resource=WordNet
 	$(MAKE) UDer-resource version=$(version) language=et resource=EstWordNet
 	$(MAKE) UDer-resource version=$(version) language=es resource=DeriNetES
-	$(MAKE) UDer-resource version=$(version) language=fa resource=DeriNetFA
-	$(MAKE) UDer-resource version=$(version) language=ru resource=DeriNetRU
+	$(MAKE) UDer-resource version=$(version) language=fa resource=DeriNetFA  # internal source files
+	$(MAKE) UDer-resource version=$(version) language=ru resource=DeriNetRU  # internal source files
 	$(MAKE) UDer-resource version=$(version) language=pl resource=PolishWFN
-	$(MAKE) UDer-resource version=$(version) language=hr resource=CroDeriV
+	$(MAKE) UDer-resource version=$(version) language=hr resource=CroDeriV  # internal source files
 	$(MAKE) UDer-resource version=$(version) language=pt resource=NomLexPT
 	$(MAKE) UDer-resource version=$(version) language=la resource=WFL
 	$(MAKE) UDer-resource version=$(version) language=fr resource=Demonette
@@ -74,10 +74,10 @@ UDer-collection:
 	$(MAKE) UDer-resource version=$(version) language=ru resource=DerivBaseRU
 	$(MAKE) UDer-resource version=$(version) language=en resource=CatVar
 	$(MAKE) UDer-resource version=$(version) language=sl resource=Sloleks
-	$(MAKE) UDer-resource version=$(version) language=en resource=ECelex
-	$(MAKE) UDer-resource version=$(version) language=nl resource=DCelex
-	$(MAKE) UDer-resource version=$(version) language=de resource=GCelex
-	$(MAKE) UDer-resource version=$(version) language=it resource=DerIvaTario
+	$(MAKE) UDer-resource version=$(version) language=en resource=ECelex  # internal source files
+	$(MAKE) UDer-resource version=$(version) language=nl resource=DCelex  # internal source files
+	$(MAKE) UDer-resource version=$(version) language=de resource=GCelex  # internal source files
+	$(MAKE) UDer-resource version=$(version) language=it resource=DerIvaTario  # incorrect links to the source files
 	$(MAKE) UDer-resource version=$(version) language=hr resource=DerivBaseHR
 	# pre-prepared: (need to annotate and harmonize)
 	# $(MAKE) UDer-resource version=$(version) language=it resource=EtymWordNetIT
