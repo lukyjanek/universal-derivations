@@ -30,4 +30,8 @@ UDer-1.1-ru-GoldCompoundAnalysis.tsv: ../../derinet2/ ../../py3env/ get-data-v11
 
 
 clean:
+<<<<<<< HEAD
 	rm -rf UDer-1.1-ru-GoldCompoundAnalysis.tsv 1.1/relations.tsv
+=======
+	rm -rf UDer-1.1-ru-GoldCompoundAnalysis.tsv 1.1/relations.tsv UDer-1.1-ru-GoldCompoundAnalyses-rules.txt
+>>>>>>> dab061f538e82a4e37bcb952d206e1c665e15845

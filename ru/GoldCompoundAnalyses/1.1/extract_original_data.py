@@ -25,11 +25,10 @@ def load_input_data(path):
 
 # extract relevant data
 def extract_relevant_annotations_from_input_data(data):
-    relations = defaultdict(set)
+    relations = defaultdict()
     for rule, compound, c_pos, first_component, fc_pos, second_component, sc_pos in data[1:]:
-        relations['_'.join([compound, c_pos])].add(
+        relations['_'.join([compound, c_pos])] = \
             ('_'.join([first_component, fc_pos]), '_'.join([second_component, sc_pos]), rule)
-        )
     return relations
 
 
@@ -37,31 +36,30 @@ def extract_relevant_annotations_from_input_data(data):
 def save_resulting_relations(path, data):
     with open(path, mode='w', encoding='U8') as file:
         for compound, relations in data.items():
-            for first_component, second_component, rule, dataset in relations:
-                print(compound, first_component, second_component, rule, dataset, sep='\t', file=file)
+            first_component, second_component, rule, dataset = relations
+            print(compound, first_component, second_component, rule, dataset, sep='\t', file=file)
 
 
 # main
 def main(args):
-    relations = defaultdict(set)
+    relations = defaultdict()
     for path, dataset in [(args.input_train, 'train'), (args.input_test, 'test'), (args.input_val, 'val')]:
         # extract original data
         extracted_data = load_input_data(path)
         relevant_relations = extract_relevant_annotations_from_input_data(extracted_data)
         # add relevant_relations into relations
-        for compound, rels in relevant_relations.items():
-            for relation in rels:
-                relation = [relation[0], relation[1], relation[2], dataset]
-                for idx in (0, 1):
-                    if ';' in relation[idx]:
-                        lemmas, poses = relation[idx].split('_')
-                        components = list()
-                        for lemma, pos in zip(lemmas.split(';'), poses.split(';')):
-                            components.append('_'.join([lemma, pos]))
-                        relation[idx] = tuple(components)
-                    else:
-                        relation[idx] = (relation[idx],)
-                relations[compound].add(tuple(relation))
+        for compound, relation in relevant_relations.items():
+            relation = [relation[0], relation[1], relation[2], dataset]
+            for idx in (0, 1):
+                if ';' in relation[idx]:
+                    lemmas, poses = relation[idx].split('_')
+                    components = list()
+                    for lemma, pos in zip(lemmas.split(';'), poses.split(';')):
+                        components.append('_'.join([lemma, pos]))
+                    relation[idx] = tuple(components)
+                else:
+                    relation[idx] = (relation[idx],)
+            relations[compound] = tuple(relation)
     save_resulting_relations(args.output_relations, relations)
 
 

@@ -4,7 +4,7 @@
 ## UDer v1.1 (2021-09)
 
 * whole collection
-    * newly added resources: ru-DeriNetRU, sl-Sloleks, hr-CroDeriV
+    * newly added resources: ru-DeriNetRU, ru-GoldCompoundAnalyses, sl-Sloleks, hr-CroDeriV
     * du-DCelex changed to nl-DCelex
     * add RAEDME.md and CHANGELOG.md for the whole collection
     * remove individual changelogs sections from individual README.md files in appropriate resources
@@ -74,6 +74,9 @@
     * ru-DerivBaseRU
         * The procedure of finding spanning tree in large families was improved.
         * Correct IDs in keys 'other_parents' in misc column.
+    * ru-GoldCompoundAnalyses
+        * Include data of exclusively compound relations GoldCompoundAnalyses 0.5 to UDer collection.
+        * The original data format harmonised.
     * ru-EtymWordNetRU
         * Without changes.
     * sh-EtymWordNetSH
