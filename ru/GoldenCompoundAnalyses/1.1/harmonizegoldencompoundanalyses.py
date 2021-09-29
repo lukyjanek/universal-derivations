@@ -16,12 +16,12 @@ logger = logging.getLogger(__name__)
 
 # save list of rules
 def save_list_of_rules(rule_dict):
-    with open('UDer-1.1-ru-GoldCompoundAnalyses-rules.txt', mode='w', encoding='U8') as file:
+    with open('UDer-1.1-ru-GoldenCompoundAnalyses-rules.txt', mode='w', encoding='U8') as file:
         for id, rule in rule_dict.items():
             print(str(id), rule, sep='\t', file=file)
 
 
-class HarmonizeGoldCompoundAnalyses(Block):
+class HarmonizeGoldenCompoundAnalyses(Block):
     """Harmonise list of compounds into UDer format."""
 
     def __init__(self, fname):
@@ -29,7 +29,7 @@ class HarmonizeGoldCompoundAnalyses(Block):
         self.fname = fname
 
     def process(self, lexicon: Lexicon):
-        """Build GoldCompoundAnalyses to DeriNet format."""
+        """Build GoldenCompoundAnalyses to DeriNet format."""
         # load data
         data = list()
         with open(self.fname, mode='r', encoding='U8') as file:

@@ -19,19 +19,15 @@ get-data-v11: ../../py3env/ ../../@input-data/ru-gold-compound-analysis-val.csv
 		--output_relations='1.1/relations.tsv'
 
 
-UDer-1.1-ru-GoldCompoundAnalysis.tsv: ../../derinet2/ ../../py3env/ get-data-v11
+UDer-1.1-ru-GoldenCompoundAnalyses.tsv: ../../derinet2/ ../../py3env/ get-data-v11
 	# 1. get-data-v11
 	# 2. harmonise
 	mkdir -p ../../derinet2/derinet/modules/uder
-	cp 1.1/harmonizegoldcompoundanalyses.py ../../derinet2/derinet/modules/uder/
+	cp 1.1/harmonizegoldencompoundanalyses.py ../../derinet2/derinet/modules/uder/
 	../../py3env/bin/python3 ../../derinet2/process_scenario.py \
-		uder.HarmonizeGoldCompoundAnalyses 1.1/relations.tsv \
-		Save UDer-1.1-ru-GoldCompoundAnalysis.tsv
+		uder.HarmonizeGoldenCompoundAnalyses 1.1/relations.tsv \
+		Save UDer-1.1-ru-GoldenCompoundAnalyses.tsv
 
 
 clean:
-<<<<<<< HEAD
-	rm -rf UDer-1.1-ru-GoldCompoundAnalysis.tsv 1.1/relations.tsv
-=======
-	rm -rf UDer-1.1-ru-GoldCompoundAnalysis.tsv 1.1/relations.tsv UDer-1.1-ru-GoldCompoundAnalyses-rules.txt
->>>>>>> dab061f538e82a4e37bcb952d206e1c665e15845
+	rm -rf UDer-1.1-ru-GoldenCompoundAnalyses.tsv 1.1/relations.tsv UDer-1.1-ru-GoldenCompoundAnalyses-rules.txt

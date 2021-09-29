@@ -70,7 +70,7 @@ UDer-collection:
 	$(MAKE) UDer-resource version=$(version) language=sh resource=EtymWordNetSH
 	$(MAKE) UDer-resource version=$(version) language=sv resource=EtymWordNetSV
 	$(MAKE) UDer-resource version=$(version) language=tr resource=EtymWordNetTR
-	$(MAKE) UDer-resource version=$(version) language=ru resource=GoldCompoundAnalyses
+	$(MAKE) UDer-resource version=$(version) language=ru resource=GoldenCompoundAnalyses
 	$(MAKE) UDer-resource version=$(version) language=ru resource=DerivBaseRU
 	$(MAKE) UDer-resource version=$(version) language=en resource=CatVar
 	$(MAKE) UDer-resource version=$(version) language=sl resource=Sloleks
