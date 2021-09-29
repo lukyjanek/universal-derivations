@@ -45,7 +45,7 @@ License text is available in the file `LICENSE.txt`.
 Resource: Golden Compound Analyses
 Language: Russian
 Authors: Vodolazsky, Daniil; Petrov, Hermann
-License: CC CC BY-NC 4.0
+License: CC BY-NC 4.0
 Contact: https://github.com/s231644/rucompoundsplitter/tree/main/data/gold_analyses
 ===============================================================================
 </pre>
