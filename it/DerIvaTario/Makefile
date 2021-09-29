@@ -1,11 +1,5 @@
 SHELL=/bin/bash
 
-../../py3env/:
-	cd ../../ && $(MAKE) py3env
-
-../../derinet2/:
-	cd ../../ && $(MAKE) derinet2
-
 ../../@input-data/derivatario.csv:  # FIX: incorrect URL
 	wget -O ../../@input-data/derivatario.csv http://derivatario.sns.it/derivatario.csv
 
@@ -13,7 +7,7 @@ SHELL=/bin/bash
 	wget -O ../../@input-data/Lemmi_rango_txt.zip http://linguistica.sns.it/CoLFIS/files/Lemmi_rango_txt.zip
 
 
-get-data-v10: ../../py3env/ ../../@input-data/derivatario.csv ../../@input-data/Lemmi_rango_txt.zip
+get-data-v10: ../../@input-data/derivatario.csv ../../@input-data/Lemmi_rango_txt.zip
 	mkdir -p original-data/
 	# 1. download data
 	unzip -q ../../@input-data/Lemmi_rango_txt.zip -d original-data/
@@ -23,7 +17,7 @@ get-data-v10: ../../py3env/ ../../@input-data/derivatario.csv ../../@input-data/
 	../../py3env/bin/python3 1.0/extract_relations.py original-data/derivatario-with-pos.txt 1.0/relations.tsv 1.0/singletons.tsv
 
 
-UDer-1.0-it-DerIvaTario.tsv: ../../derinet2/ ../../py3env/ get-data-v10
+UDer-1.0-it-DerIvaTario.tsv: get-data-v10
 	# 1. get-data-v10
 	# 2. proces annotations
 	../../py3env/bin/python3 ../../@shared-scripts/annot_data.py -i 1.0/relations.tsv -o 1.0/prep-to-predict.tsv -c
@@ -53,7 +47,7 @@ UDer-1.0-it-DerIvaTario.tsv: ../../derinet2/ ../../py3env/ get-data-v10
 	../../py3env/bin/python3 1.0/edit-json-column.py UDer-1.0-it-DerIvaTario.tsv > UDer-1.0-it-DerIvaTario-v2.tsv
 	mv UDer-1.0-it-DerIvaTario-v2.tsv UDer-1.0-it-DerIvaTario.tsv
 
-UDer-1.1-it-DerIvaTario.tsv: ../../derinet2/ ../../py3env/ get-data-v10
+UDer-1.1-it-DerIvaTario.tsv: get-data-v10
 	# 1. get-data-v10
 	# 2. proces annotations
 	../../py3env/bin/python3 ../../@shared-scripts/annot_data.py -i 1.0/relations.tsv -o 1.1/prep-to-predict.tsv -c
@@ -71,7 +65,7 @@ UDer-1.1-it-DerIvaTario.tsv: ../../derinet2/ ../../py3env/ get-data-v10
 	../../py3env/bin/python3 1.0/edit-json-column.py UDer-1.1-it-DerIvaTario.tsv > UDer-1.1-it-DerIvaTario-v2.tsv
 	mv UDer-1.1-it-DerIvaTario-v2.tsv UDer-1.1-it-DerIvaTario.tsv
 
-01-harm-annotation: ../../py3env/ get-data-v10
+01-harm-annotation: get-data-v10
 	../../py3env/bin/python3 ../../@shared-scripts/annot_data.py -i 1.0/relations.tsv -o 1.0/01-harm-annotated/annotation-data.json -j
 
 

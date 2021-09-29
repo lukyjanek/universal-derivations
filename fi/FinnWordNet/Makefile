@@ -1,19 +1,13 @@
 SHELL=/bin/bash
 
-../../py3env/:
-	cd ../../ && $(MAKE) py3env
-
-../../derinet2/:
-	cd ../../ && $(MAKE) derinet2
-
-get-data-v05: ../../py3env/
+get-data-v05:
 	# 1. download data
 	wget -O ../../@input-data/fiwn-lexrels.tsv https://github.com/frankier/fiwn/raw/master/data/rels/fiwn-lexrels.tsv
 	# 2. preproces data
 	../../py3env/bin/python3 0.5/extract_relations.py ../../@input-data/fiwn-lexrels.tsv > 0.5/relations.tsv
 
 
-UDer-0.5-fi-FinnWordNet.tsv: ../../derinet2/ ../../py3env/ get-data-v05
+UDer-0.5-fi-FinnWordNet.tsv: get-data-v05
 	# 1. get-data-v05
 	# 2. proces annotations
 	../../py3env/bin/python3 ../../@shared-scripts/annot_data.py -i 0.5/relations.tsv -o 0.5/prep-to-predict.tsv -c
@@ -29,7 +23,7 @@ UDer-0.5-fi-FinnWordNet.tsv: ../../derinet2/ ../../py3env/ get-data-v05
 		uder.HarmonizeFinnWordNet 0.5/harmonized.pickle \
 		Save UDer-0.5-fi-FinnWordNet.tsv
 
-UDer-1.0-fi-FinnWordNet.tsv: ../../derinet2/ ../../py3env/ get-data-v05
+UDer-1.0-fi-FinnWordNet.tsv: get-data-v05
 	# 1. get-data-v05
 	mv 0.5/relations.tsv 1.0/relations.tsv
 	# 2. proces annotations
@@ -64,7 +58,7 @@ UDer-1.1-fi-FinnWordNet.tsv: UDer-1.0-fi-FinnWordNet.tsv
 	cp UDer-1.0-fi-FinnWordNet.tsv UDer-1.1-fi-FinnWordNet.tsv
 
 
-01-harm-annotation: ../../py3env/ get-data-v05
+01-harm-annotation: get-data-v05
 	../../py3env/bin/python3 ../../@shared-scripts/annot_data.py -i 0.5/relations.tsv -o 0.5/01-harm-annotated/annotation-data.json -j
 
 02-harm-annotation:

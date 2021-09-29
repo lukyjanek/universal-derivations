@@ -1,12 +1,6 @@
 SHELL=/bin/bash
 
-../../py3env/:
-	cd ../../ && $(MAKE) py3env
-
-../../derinet2/:
-	cd ../../ && $(MAKE) derinet2
-
-get-data-v10: ../../py3env/
+get-data-v10:
 	mkdir -p original-data/
 	# 1. download data
 	wget -O ../../@input-data/DerivBase.hr.v1.tar.gz http://takelab.fer.hr/data/derivbasehr/DerivBase.hr.v1.tar.gz
@@ -16,7 +10,7 @@ get-data-v10: ../../py3env/
 	cat original-data/DerivBase.hr.v1/DerivBase.hr.K.v1.0 | grep -v ' ' > 1.0/singletons.tsv
 
 
-UDer-1.0-hr-DerivBaseHR.tsv: ../../derinet2/ ../../py3env/ get-data-v10
+UDer-1.0-hr-DerivBaseHR.tsv: get-data-v10
 	# 1. get-data-v10
 	# 2. proces annotations
 	../../py3env/bin/python3 ../../@shared-scripts/annot_data.py -i 1.0/relations.tsv -o 1.0/prep-to-predict.tsv -c
@@ -50,7 +44,7 @@ UDer-1.0-hr-DerivBaseHR.tsv: ../../derinet2/ ../../py3env/ get-data-v10
 	../../py3env/bin/python3 1.0/edit-json-column.py UDer-1.0-hr-DerivBaseHR.tsv > UDer-1.0-hr-DerivBaseHR-v2.tsv
 	mv UDer-1.0-hr-DerivBaseHR-v2.tsv UDer-1.0-hr-DerivBaseHR.tsv
 
-UDer-1.1-hr-DerivBaseHR.tsv: ../../derinet2/ ../../py3env/ get-data-v10
+UDer-1.1-hr-DerivBaseHR.tsv: get-data-v10
 	# 1. get-data-v10
 	# 2. proces annotations
 	../../py3env/bin/python3 ../../@shared-scripts/annot_data.py -i 1.0/relations.tsv -o 1.1/prep-to-predict.tsv -c
@@ -73,7 +67,7 @@ UDer-1.1-hr-DerivBaseHR.tsv: ../../derinet2/ ../../py3env/ get-data-v10
 	mv UDer-1.1-hr-DerivBaseHR-v2.tsv UDer-1.1-hr-DerivBaseHR.tsv
 
 
-01-harm-annotation: ../../py3env/ get-data-v10
+01-harm-annotation: get-data-v10
 	../../py3env/bin/python3 ../../@shared-scripts/annot_data.py -i 1.0/relations.tsv -o 1.0/01-harm-annotated/annotation-data.json -j
 
 

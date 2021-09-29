@@ -1,15 +1,9 @@
 SHELL=/bin/bash
 
-../../py3env/:
-	cd ../../ && $(MAKE) py3env
-
-../../derinet2/:
-	cd ../../ && $(MAKE) derinet2
-
 ../../@input-data/etymwn-20130208.zip:
-	wget -O ../../@input-data/etymwn-20130208.zip https://cs.rutgers.edu/~gd343/downloads/etymwn-20130208.zip
+	wget --no-check-certificate -O ../../@input-data/etymwn-20130208.zip https://cs.rutgers.edu/~gd343/downloads/etymwn-20130208.zip
 
-get-data-v10: ../../py3env/ ../../@input-data/etymwn-20130208.zip
+get-data-v10: ../../@input-data/etymwn-20130208.zip
 	mkdir -p original-data/
 	# 1. download data
 	unzip ../../@input-data/etymwn-20130208.zip -d original-data/
@@ -20,7 +14,7 @@ get-data-v10: ../../py3env/ ../../@input-data/etymwn-20130208.zip
 	mv 1.0/relations-copy.tsv 1.0/relations.tsv
 
 
-UDer-1.0-ca-EtymWordNetCA.tsv: ../../derinet2/ ../../py3env/ get-data-v10
+UDer-1.0-ca-EtymWordNetCA.tsv: get-data-v10
 	# 1. get-data-v10
 	# 2. proces annotations
 	../../py3env/bin/python3 ../../@shared-scripts/annot_data.py -i 1.0/01-harm-annotated/annotation-data-1.json -o 1.0/01-harm-annotated/all-annotations.tsv -j2c
@@ -38,7 +32,7 @@ UDer-1.1-ca-EtymWordNetCA.tsv: UDer-1.0-ca-EtymWordNetCA.tsv
 	cp UDer-1.0-ca-EtymWordNetCA.tsv UDer-1.1-ca-EtymWordNetCA.tsv
 
 
-01-harm-annotation: ../../py3env/ get-data-v10
+01-harm-annotation: get-data-v10
 	../../py3env/bin/python3 ../../@shared-scripts/annot_data.py -i 1.0/relations.tsv -o 1.0/01-harm-annotated/annotation-data.json -j
 
 

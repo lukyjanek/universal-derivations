@@ -1,12 +1,6 @@
 SHELL=/bin/bash
 
-../../py3env/:
-	cd ../../ && $(MAKE) py3env
-
-../../derinet2/:
-	cd ../../ && $(MAKE) derinet2
-
-get-data-v10: ../../py3env/
+get-data-v10:
 	# 1. download data
 	wget -O ../../@input-data/catvar21.signed https://raw.githubusercontent.com/nizarhabash1/catvar/master/catvar21.signed
 	# 2. preproces data
@@ -14,7 +8,7 @@ get-data-v10: ../../py3env/
 	cat ../../@input-data/catvar21.signed | grep -v '#' | sed 's/\%.*//g' > 1.0/singletons.tsv
 
 
-UDer-1.0-en-CatVar.tsv: ../../derinet2/ ../../py3env/ get-data-v10
+UDer-1.0-en-CatVar.tsv: get-data-v10
 	# 1. get-data-v10
 	# 2. proces annotations
 	../../py3env/bin/python3 ../../@shared-scripts/annot_data.py -i 1.0/relations.tsv -o 1.0/prep-to-predict.tsv -c
@@ -48,7 +42,7 @@ UDer-1.1-en-CatVar.tsv: UDer-1.0-en-CatVar.tsv
 	cp UDer-1.0-en-CatVar.tsv UDer-1.1-en-CatVar.tsv
 
 
-01-harm-annotation: ../../py3env/ get-data-v10
+01-harm-annotation: get-data-v10
 	../../py3env/bin/python3 ../../@shared-scripts/annot_data.py -i 1.0/relations.tsv -o 1.0/01-harm-annotated/annotation-data.json -j
 
 

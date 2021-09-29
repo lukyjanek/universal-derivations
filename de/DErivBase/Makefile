@@ -1,12 +1,6 @@
 SHELL=/bin/bash
 
-../../py3env/:
-	cd ../../ && $(MAKE) py3env
-
-../../derinet2/:
-	cd ../../ && $(MAKE) derinet2
-
-get-data-v05: ../../py3env/
+get-data-v05:
 	mkdir -p original-data/
 	# 1. download data
 	wget -O ../../@input-data/DErivBase-v2.0.zip https://www.ims.uni-stuttgart.de/documents/ressourcen/lexika/derivbase/derivbase-v2.0.zip
@@ -16,7 +10,7 @@ get-data-v05: ../../py3env/
 	cat original-data/derivbase/DErivBase-v2.0-families.txt | grep -v ' ' > 0.5/singletons.tsv
 
 
-UDer-0.5-de-DErivBase.tsv: ../../derinet2/ ../../py3env/ get-data-v05
+UDer-0.5-de-DErivBase.tsv: get-data-v05
 	# 1. get-data-v05
 	# 2. process annotations
 	../../py3env/bin/python3 ../../@shared-scripts/annot_data.py -i 0.5/relations.tsv -o 0.5/prep-to-predict.tsv -c
@@ -32,7 +26,7 @@ UDer-0.5-de-DErivBase.tsv: ../../derinet2/ ../../py3env/ get-data-v05
 		uder.HarmonizeDerivBase 0.5/harmonized.pickle \
 		Save UDer-0.5-de-DErivBase.tsv
 
-UDer-1.0-de-DErivBase.tsv: ../../derinet2/ ../../py3env/ get-data-v05
+UDer-1.0-de-DErivBase.tsv: get-data-v05
 	# 1. get-data-v05
 	mv 0.5/singletons.tsv 1.0/singletons.tsv
 	mv 0.5/relations.tsv 1.0/relations.tsv
@@ -65,7 +59,7 @@ UDer-1.0-de-DErivBase.tsv: ../../derinet2/ ../../py3env/ get-data-v05
 	../../py3env/bin/python3 1.0/edit-json-column.py UDer-1.0-de-DErivBase.tsv > UDer-1.0-de-DErivBase-v2.tsv
 	mv UDer-1.0-de-DErivBase-v2.tsv UDer-1.0-de-DErivBase.tsv
 
-UDer-1.1-de-DErivBase.tsv: ../../derinet2/ ../../py3env/ get-data-v05
+UDer-1.1-de-DErivBase.tsv: get-data-v05
 	# 1. get-data-v05
 	mv 0.5/singletons.tsv 1.1/singletons.tsv
 	mv 0.5/relations.tsv 1.1/relations.tsv
@@ -87,7 +81,7 @@ UDer-1.1-de-DErivBase.tsv: ../../derinet2/ ../../py3env/ get-data-v05
 	mv UDer-1.1-de-DErivBase-v2.tsv UDer-1.1-de-DErivBase.tsv
 
 
-01-harm-annotation: ../../py3env/ get-data-v05
+01-harm-annotation: get-data-v05
 	../../py3env/bin/python3 ../../@shared-scripts/annot_data.py -i 0.5/relations.tsv -o 0.5/01-harm-annotated/annotation-data.json -j
 
 02-harm-annotation:

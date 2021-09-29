@@ -1,12 +1,6 @@
 SHELL=/bin/bash
 
-../../py3env/:
-	cd ../../ && $(MAKE) py3env
-
-../../derinet2/:
-	cd ../../ && $(MAKE) derinet2
-
-get-data-v05: ../../py3env/
+get-data-v05:
 	mkdir -p original-data/
 	# 1. download data
 	wget -O ../../@input-data/lemlat_db_01-08-2018.sql https://raw.githubusercontent.com/CIRCSE/LEMLAT3/master/lemlat_db_01-08-2018.sql
@@ -15,7 +9,7 @@ get-data-v05: ../../py3env/
 	grep -e 'INSERT INTO `lemmas_wfr`' ../../@input-data/lemlat_db_01-08-2018.sql | sed -e 's/^.*VALUES //g' | sed -e 's/;//g' | sed -e 's/),(/)\n(/g' | sed -e "s/^('*//g" | sed "s/'*,'*/\t/g" | sed -e "s/'*)$$//g" > original-data/lemlat3-lemmaswfr.txt
 	../../py3env/bin/python3 0.5/extract_relations.py original-data/lemlat3-lemmario.txt original-data/lemlat3-lemmaswfr.txt > 0.5/relations.tsv
 
-get-data-v10: ../../py3env/
+get-data-v10:
 	mkdir -p original-data/
 	# 1. download data
 	# wget -O ../../@input-data/lemlat_db_26-07-2019.sql https://raw.githubusercontent.com/CIRCSE/LEMLAT3/master/lemlat_db_26-07-2019.sql
@@ -24,7 +18,7 @@ get-data-v10: ../../py3env/
 	grep -e 'INSERT INTO `lemmas_wfr`' ../../@input-data/lemlat_db_26-07-2019.sql | sed -e 's/^.*VALUES //g' | sed -e 's/;//g' | sed -e 's/),(/)\n(/g' | sed -e "s/^('*//g" | sed "s/'*,'*/\t/g" | sed -e "s/'*)$$//g" > original-data/lemlat3-lemmaswfr.txt
 	../../py3env/bin/python3 0.5/extract_relations.py original-data/lemlat3-lemmario.txt original-data/lemlat3-lemmaswfr.txt > 1.0/relations.tsv
 
-get-data-v11: ../../py3env/
+get-data-v11:
 	mkdir -p original-data/
 	# 1. download data
 	wget -O ../../@input-data/wfl_derivational_db.sql https://raw.githubusercontent.com/CIRCSE/WFL/master/derivational_db.sql
@@ -35,7 +29,7 @@ get-data-v11: ../../py3env/
 	../../py3env/bin/python3 1.1/extract_relations.py --lemmario="original-data/lemmario.txt" --wfr="original-data/wfr.txt" --wfr_rel="original-data/wfr-rel.txt" --output="1.1/relations.tsv"
 
 
-UDer-0.5-la-WFL.tsv: ../../derinet2/ ../../py3env/ get-data-v05
+UDer-0.5-la-WFL.tsv: get-data-v05
 	# 1. get-data-v05
 	# 2. proces annotations
 	../../py3env/bin/python3 ../../@shared-scripts/annot_data.py -i 0.5/01-harm-annotated/annotation-data-1.json -o 0.5/01-harm-annotated/all-annotations.tsv -j2c
@@ -76,10 +70,10 @@ UDer-1.1-la-WFL.tsv: get-data-v11
 	mv UDer-1.1-la-WFL-v2.tsv UDer-1.1-la-WFL.tsv
 
 
-01-harm-annotation: ../../py3env/ get-data-v05
+01-harm-annotation: get-data-v05
 	../../py3env/bin/python3 ../../@shared-scripts/annot_data.py -i 0.5/relations.tsv -o 0.5/01-harm-annotated/annotation-data.json -j
 
-02-harm-annotation: ../../py3env/ get-data-v11
+02-harm-annotation: get-data-v11
 	../../py3env/bin/python3 ../../@shared-scripts/annot_data.py -i <(grep -v 'Compounding' 1.1/relations.tsv) -o 1.1/02-harm-annotated/annotation-data.json -j
 
 

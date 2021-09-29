@@ -1,12 +1,6 @@
 SHELL=/bin/bash
 
-../../py3env/:
-	cd ../../ && $(MAKE) py3env
-
-../../derinet2/:
-	cd ../../ && $(MAKE) derinet2
-
-get-data-v11: ../../py3env/
+get-data-v11:
 	mkdir -p original-data/
 	# 1. download data
 	wget -O ../../@input-data/Sloleks2.0.LMF.zip 'https://www.clarin.si/repository/xmlui/bitstream/handle/11356/1230/Sloleks2.0.LMF.zip?sequence=3&isAllowed=y'
@@ -15,7 +9,7 @@ get-data-v11: ../../py3env/
 	../../py3env/bin/python3 1.1/extract_relations.py original-data/Sloleks2.0.LMF/sloleks_clarin_2.0.xml > 1.1/relations.tsv
 
 
-UDer-1.1-sl-Sloleks.tsv: ../../derinet2/ ../../py3env/ get-data-v11
+UDer-1.1-sl-Sloleks.tsv: get-data-v11
 	# 1. get-data-v11
 	# 2. proces annotations
 	../../py3env/bin/python3 ../../@shared-scripts/annot_data.py -i 1.1/relations.tsv -o 1.1/prep-to-predict.tsv -c
@@ -46,7 +40,7 @@ UDer-1.1-sl-Sloleks.tsv: ../../derinet2/ ../../py3env/ get-data-v11
 	mv UDer-1.1-sl-Sloleks-v2.tsv UDer-1.1-sl-Sloleks.tsv
 
 
-01-harm-annotation: ../../py3env/ get-data-v11
+01-harm-annotation: get-data-v11
 	../../py3env/bin/python3 ../../@shared-scripts/annot_data.py -i 1.1/relations.tsv -o 1.1/01-harm-annotated/annotation-data.json -j
 
 

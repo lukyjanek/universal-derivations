@@ -1,19 +1,13 @@
 SHELL=/bin/bash
 
-../../py3env/:
-	cd ../../ && $(MAKE) py3env
-
-../../derinet2/:
-	cd ../../ && $(MAKE) derinet2
-
-get-data-v05: ../../py3env/
+get-data-v05:
 	mkdir original-data/
 	# 1. donwload data
 	wget -O ../../@input-data/polish-wfn-0.5.zip https://ufal.mff.cuni.cz/~vidra/derinet/polish-wfn-0.5.zip
 	unzip ../../@input-data/polish-wfn-0.5.zip -d original-data/
 
 
-UDer-0.5-pl-PolishWFN.tsv: ../../derinet2/ ../../py3env/ get-data-v05
+UDer-0.5-pl-PolishWFN.tsv: get-data-v05
 	# 1. get-data-v05
 	# 2. harmonise
 	../../py3env/bin/python3 ../../derinet2/process_scenario.py \

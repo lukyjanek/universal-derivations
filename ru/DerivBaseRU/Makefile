@@ -1,13 +1,6 @@
 SHELL=/bin/bash
 
-../../py3env/:
-	cd ../../ && $(MAKE) py3env
-
-../../derinet2/:
-	cd ../../ && $(MAKE) derinet2
-
-
-get-data-v10: ../../py3env/
+get-data-v10:
 	mkdir -p original-data/
 	# 1. download data
 	wget -O ../../@input-data/derivbaseRU-connections.zip https://github.com/s231644/DerivBaseRu/raw/master/data/wiktionary/v001.00-connections.zip
@@ -27,7 +20,7 @@ get-data-v10: ../../py3env/
 	../../py3env/bin/python3 1.0/extract_relations.py "$$(ls original-data/*-tagged.txt)" "$$(ls original-data/connections-*-data.csv)" 1.0/relations.tsv 1.0/singletons.tsv
 
 
-UDer-1.0-ru-DerivBaseRU.tsv: ../../derinet2/ ../../py3env/ get-data-v10
+UDer-1.0-ru-DerivBaseRU.tsv: get-data-v10
 	# 1. get-data-v10
 	../../py3env/bin/python3 1.0/extract_rules.py 1.0/relations.tsv UDer-1.0-ru-DerivBaseRU-rules.txt
 	# 2. process annotations
@@ -59,7 +52,7 @@ UDer-1.0-ru-DerivBaseRU.tsv: ../../derinet2/ ../../py3env/ get-data-v10
 	../../py3env/bin/python3 1.0/edit-json-column.py UDer-1.0-ru-DerivBaseRU.tsv > UDer-1.0-ru-DerivBaseRU-v2.tsv
 	mv UDer-1.0-ru-DerivBaseRU-v2.tsv UDer-1.0-ru-DerivBaseRU.tsv
 
-UDer-1.1-ru-DerivBaseRU.tsv: ../../derinet2/ ../../py3env/ get-data-v10
+UDer-1.1-ru-DerivBaseRU.tsv: get-data-v10
 	# 1. get-data-v10
 	../../py3env/bin/python3 1.0/extract_rules.py 1.0/relations.tsv UDer-1.1-ru-DerivBaseRU-rules.txt
 	# 2. process annotations
@@ -80,10 +73,10 @@ UDer-1.1-ru-DerivBaseRU.tsv: ../../derinet2/ ../../py3env/ get-data-v10
 	mv UDer-1.1-ru-DerivBaseRU-v2.tsv UDer-1.1-ru-DerivBaseRU.tsv
 
 
-01-harm-annotation: ../../py3env/ get-data-v10
+01-harm-annotation: get-data-v10
 	../../py3env/bin/python3 ../../@shared-scripts/annot_data.py -i 1.0/relations.tsv -o 1.0/01-harm-annotated/annotation-data.json -j
 
-02-harm-annotation: ../../py3env/ get-data-v10
+02-harm-annotation: get-data-v10
 	mkdir -p russian-corpora/
 	wget -P russian-corpora/ https://raw.githubusercontent.com/UniversalDependencies/UD_Russian-PUD/master/ru_pud-ud-test.conllu
 	wget -P russian-corpora/ https://raw.githubusercontent.com/UniversalDependencies/UD_Russian-GSD/master/ru_gsd-ud-dev.conllu

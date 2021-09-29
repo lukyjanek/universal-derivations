@@ -1,16 +1,10 @@
 SHELL=/bin/bash
 
-../../py3env/:
-	cd ../../ && $(MAKE) py3env
-
-../../derinet2/:
-	cd ../../ && $(MAKE) derinet2
-
 ../../@input-data/celex2.zip:
 	@echo "$$(tput setaf 1)You need celex2.zip. It is not free. More info here:\n\thttps://catalog.ldc.upenn.edu/LDC96L14"
 
 
-get-data-v10: ../../py3env/ ../../@input-data/celex2.zip
+get-data-v10: ../../@input-data/celex2.zip
 	mkdir -p original-data/
 	# 1. download data
 	unzip -q ../../@input-data/celex2.zip -d original-data/
@@ -28,7 +22,7 @@ morphology/GMOLoutputneworthography: get-data-v10 morphology/
 	cd morphology/ && perl OrthCELEX.pl
 
 
-UDer-1.0-de-GCelex.tsv: ../../derinet2/ ../../py3env/ get-data-v10
+UDer-1.0-de-GCelex.tsv: get-data-v10
 	# 1. get-data-v10
 	# 2. proces annotations
 	../../py3env/bin/python3 ../../@shared-scripts/annot_data.py -i 1.0/relations.tsv -o 1.0/prep-to-predict.tsv -c
@@ -58,7 +52,7 @@ UDer-1.0-de-GCelex.tsv: ../../derinet2/ ../../py3env/ get-data-v10
 	../../py3env/bin/python3 1.0/edit-json-column.py UDer-1.0-de-GCelex.tsv > UDer-1.0-de-GCelex-v2.tsv
 	mv UDer-1.0-de-GCelex-v2.tsv UDer-1.0-de-GCelex.tsv
 
-UDer-1.1-de-GCelex.tsv: ../../derinet2/ ../../py3env/ get-data-v10 morphology/GMOLoutputneworthography
+UDer-1.1-de-GCelex.tsv: get-data-v10 morphology/GMOLoutputneworthography
 	# 1. get-data-v10
 	# 2. proces annotations
 	../../py3env/bin/python3 ../../@shared-scripts/annot_data.py -i 1.0/relations.tsv -o 1.1/prep-to-predict.tsv -c
@@ -78,7 +72,7 @@ UDer-1.1-de-GCelex.tsv: ../../derinet2/ ../../py3env/ get-data-v10 morphology/GM
 		Save UDer-1.1-de-GCelex.tsv
 
 
-01-harm-annotation: ../../py3env/ get-data-v10
+01-harm-annotation: get-data-v10
 	../../py3env/bin/python3 ../../@shared-scripts/annot_data.py -i 1.0/relations.tsv -o 1.0/01-harm-annotated/annotation-data.json -j
 
 
