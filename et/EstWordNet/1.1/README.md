@@ -61,8 +61,8 @@ Contact: https://www.cl.ut.ee/ressursid/teksaurus/
 <pre>
 === Machine-readable metadata =================================================
 Harmonized resource: EstWordNet
-Harmonized version: 2.1
-Data source: https://gitlab.keeleressursid.ee/avalik/data/raw/master/estwn/estwn-et-2.1.0.wip.xml
+Harmonized version: 2.4
+Data source: https://gitlab.keeleressursid.ee/avalik/data/-/raw/master/estwn/estwn-et-2.4/estwn-et-2.4.0.xml
 Data available since: UDer v0.5
 Harmonization: manual
 Common features: Morphological categories
