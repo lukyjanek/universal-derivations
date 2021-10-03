@@ -12,7 +12,7 @@ The data structure of DeriNet.RU is rooted trees by default.
 
 # Acknowledgments
 
-We wish to thank all of the developers and annotators of the DeriNet.RU, including Lukáš Kyjánek, Olga Lyashevskaya, Anna Nedoluzhko, Daniil Vodolazsky, Magda Ševčíková, and Zdeněk Žabokrtský.
+We wish to thank all of the developers and annotators of the DeriNet.RU, including Lukáš Kyjánek, Olga Lyashevskaya, Anna Nedoluzhko, Daniil Vodolazsky, and Zdeněk Žabokrtský.
 
 
 ## References
@@ -43,7 +43,7 @@ License text is available in the file `LICENSE.txt`.
 === Machine-readable metadata =================================================
 Resource: DeriNet.RU
 Language: Russian
-Authors: Kyjánek, Lukáš; Lyashevskaya, Olga; Nedoluzhko, Anna; Vodolazsky, Daniil; Ševčíková, Magda; Žabokrtský, Zdeněk
+Authors: Kyjánek, Lukáš; Lyashevskaya, Olga; Nedoluzhko, Anna; Vodolazsky, Daniil; Žabokrtský, Zdeněk
 License: CC BY-NC-SA 4.0
 Contact: http://ufal.mff.cuni.cz/derinet
 ===============================================================================
