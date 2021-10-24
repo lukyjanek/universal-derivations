@@ -16,9 +16,9 @@ morphology/:
 	git clone https://github.com/petrasteiner/morphology.git
 
 morphology/GMOLoutputneworthography: get-data-v10 morphology/
-	cp original-data/celex2/german/gml/gml.cd morphology/
-	cp original-data/celex2/german/gol/gol.cd morphology/
-	cp original-data/celex2/german/gsl/gsl.cd morphology/
+	cp original-data/celex2/german/gml/gml.cd morphology/GML.CD
+	cp original-data/celex2/german/gol/gol.cd morphology/GOL.CD
+	cp original-data/celex2/german/gsl/gsl.cd morphology/GSL.CD
 	cd morphology/ && perl OrthCELEX.pl
 
 
