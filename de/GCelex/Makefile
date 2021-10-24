@@ -67,8 +67,11 @@ UDer-1.1-de-GCelex.tsv: get-data-v10 morphology/GMOLoutputneworthography
 	cp 1.1/modernisegcelexorthography.py ../../derinet2/derinet/modules/uder/
 	../../py3env/bin/python3 ../../derinet2/process_scenario.py \
 		uder.HarmonizeGCelex 1.1/harmonized.pickle \
-		de.InferCELEXMorphs \
 		uder.ModerniseGCelexOrthography morphology/GMOLoutputneworthography \
+		Save UDer-1.1-de-GCelex-nomorphs.tsv
+	../../py3env/bin/python3 ../../derinet2/process_scenario.py \
+		Load UDer-1.1-de-GCelex-nomorphs.tsv \
+		de.InferCELEXMorphs \
 		Save UDer-1.1-de-GCelex.tsv
 
 
