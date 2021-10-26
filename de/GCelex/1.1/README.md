@@ -8,7 +8,7 @@ Universal Derivations version of G-CELEX (https://catalog.ldc.upenn.edu/LDC96L14
 G-CELEX is one part of CELEX, the large manually created resource providing orthographic, phonetic, morphological, and syntactic annotations. The set of lexemes come from various dictionaries and corpora. The data provides three types of morphological segmentation: (a) an immediate segmentation of lexemes into bases and affixes, (b) a hierarchical segmentation of lexemes into morphemes organised into a tree structure, and (c) a flat segmentation of lexemes into morphemes obtainable from the last tree level.
 
 G-CELEX has been harmonized automatically using Machine Learning method.
-Since its original license is restrictive, users have to obtain the original data on their own. Then tha harmonisation can be done using attached Makefile.
+Since its original license is restrictive, users have to obtain the original data on their own. Then the harmonisation can be done using the attached Makefile.
 
 
 # Acknowledgments

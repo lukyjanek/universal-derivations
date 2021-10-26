@@ -16,9 +16,9 @@ morphology/:
 	git clone https://github.com/petrasteiner/morphology.git
 
 morphology/GMOLoutputneworthography: get-data-v10 morphology/
-	cp original-data/celex2/german/gml/gml.cd morphology/
-	cp original-data/celex2/german/gol/gol.cd morphology/
-	cp original-data/celex2/german/gsl/gsl.cd morphology/
+	cp original-data/celex2/german/gml/gml.cd morphology/GML.CD
+	cp original-data/celex2/german/gol/gol.cd morphology/GOL.CD
+	cp original-data/celex2/german/gsl/gsl.cd morphology/GSL.CD
 	cd morphology/ && perl OrthCELEX.pl
 
 
@@ -67,8 +67,11 @@ UDer-1.1-de-GCelex.tsv: get-data-v10 morphology/GMOLoutputneworthography
 	cp 1.1/modernisegcelexorthography.py ../../derinet2/derinet/modules/uder/
 	../../py3env/bin/python3 ../../derinet2/process_scenario.py \
 		uder.HarmonizeGCelex 1.1/harmonized.pickle \
-		de.InferCELEXMorphs \
 		uder.ModerniseGCelexOrthography morphology/GMOLoutputneworthography \
+		Save UDer-1.1-de-GCelex-nomorphs.tsv
+	../../py3env/bin/python3 ../../derinet2/process_scenario.py \
+		Load UDer-1.1-de-GCelex-nomorphs.tsv \
+		de.InferCELEXMorphs \
 		Save UDer-1.1-de-GCelex.tsv
 
 
