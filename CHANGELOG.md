@@ -6,9 +6,9 @@
 * whole collection
     * newly added resources: ru-DeriNetRU, ru-GoldenCompoundAnalyses, sl-Sloleks, hr-CroDeriV
     * du-DCelex changed to nl-DCelex
-    * add RAEDME.md and CHANGELOG.md for the whole collection
+    * add README.md and CHANGELOG.md for the whole collection
     * remove individual changelogs sections from individual README.md files in appropriate resources
-    * automatise the creation all README.md, especially the part summarising statistics of individual resources
+    * automatise the creation of all README.md files, especially the part summarising statistics of individual resources
     * update README.md files of individual resources
 
 * individual resources
