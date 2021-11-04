@@ -15,7 +15,7 @@ with open(sys.argv[1], mode='r', encoding='U8') as f:
         for item in feats.split('#'):
             rule, rule_process = item.split('&')
             rule_num = re.search(r'rule([0-9]*)', rule).group(1)
-            rule_men = re.search(r'(.*?)(\(.*?\))', rule).group(2)
+            rule_men = re.search(r'(.*?)(\(.*\))', rule).group(2)
             if rule_num:
                 data[rule_num] = (rule_men, rule_process)
 
