@@ -13,7 +13,9 @@ get-data-v10: ../../@input-data/celex2.zip
 
 
 morphology/:
-	git clone https://github.com/petrasteiner/morphology.git
+	# git clone https://github.com/petrasteiner/morphology.git
+	git clone --single-branch --branch 'patch-1' 'https://github.com/vidraj/morphology.git'  # patched version
+
 
 morphology/GMOLoutputneworthography: get-data-v10 morphology/
 	cp original-data/celex2/german/gml/gml.cd morphology/GML.CD
